@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoClimatic Sustainable Cooling Solutions</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.png" type="image/png">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Video Background -->
+    <div class="video-background">
+      <img src="public/dynamic-background.png" alt="" class="background-video-image">
+      <div class="video-overlay"></div>
+    </div>
+  
+    <!-- Enhanced Floating Particles Background -->
+    <div class="particles-background">
+      <div class="particle particle-1"></div>
+      <div class="particle particle-2"></div>
+      <div class="particle particle-3"></div>
+      <div class="particle particle-4"></div>
+      <div class="particle particle-5"></div>
+      <div class="particle particle-6"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="site-header">
+      <div class="container">
+        <div class="logo" onclick="scrollToSection('home')">
+          <div class="logo-image-container">
+            <img src="logo.jpg" alt="EcoClimatic Logo" class="logo-image">
+            <div class="logo-indicator"></div>
+          </div>
+          <div>
+            <h1 class="logo-text">EcoClimatic</h1>
+            <p class="logo-tagline">Sustainable Cooling Solutions</p>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <ul>
+            <li><button class="nav-link active" onclick="scrollToSection('home')" data-section="home">Home</button></li>
+            <li><button class="nav-link" onclick="scrollToSection('about')" data-section="about">About</button></li>
+            <li><button class="nav-link" onclick="scrollToSection('services')" data-section="services">Services</button></li>
+            <li><button class="nav-link" onclick="scrollToSection('portfolio')" data-section="portfolio">Our Work</button></li>
+            <li><button class="nav-link" onclick="scrollToSection('benefits')" data-section="benefits">Benefits</button></li>
+            <li><button class="nav-link" onclick="scrollToSection('contact')" data-section="contact">Contact</button></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="language-switcher">
+            <button id="language-toggle" class="btn-ghost">
+              <i data-lucide="globe" class="icon-sm"></i>
+              <span id="current-language">English</span>
+            </button>
+            <div id="language-dropdown" class="dropdown">
+              <button class="dropdown-item active" data-lang="en">
+                <span class="flag"></span> English
+              </button>
+              <button class="dropdown-item" data-lang="fr">
+                <span class="flag"></span> Français
+              </button>
+            </div>
+          </div>
+          <button class="btn-ghost phone-btn">
+            <i data-lucide="phone" class="icon-sm"></i>
+            +33 7 84 78 99 10
+          </button>
+          <button class="btn-primary">
+            <span id="nav-quote">Get Quote</span>
+          </button>
+        </div>
+
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+          <i data-lucide="menu" class="icon"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-container">
+        <ul class="mobile-nav">
+          <li><button class="mobile-nav-link active" onclick="scrollToSection('home'); closeMobileMenu();" data-section="home">Home</button></li>
+          <li><button class="mobile-nav-link" onclick="scrollToSection('about'); closeMobileMenu();" data-section="about">About</button></li>
+          <li><button class="mobile-nav-link" onclick="scrollToSection('services'); closeMobileMenu();" data-section="services">Services</button></li>
+          <li><button class="mobile-nav-link" onclick="scrollToSection('portfolio'); closeMobileMenu();" data-section="portfolio">Our Work</button></li>
+          <li><button class="mobile-nav-link" onclick="scrollToSection('benefits'); closeMobileMenu();" data-section="benefits">Benefits</button></li>
+          <li><button class="mobile-nav-link" onclick="scrollToSection('contact'); closeMobileMenu();" data-section="contact">Contact</button></li>
+        </ul>
+        <div class="mobile-actions">
+          <button class="btn-primary full-width">
+            <span id="mobile-nav-quote">Get Quote</span>
+          </button>
+          <div class="language-options">
+            <button class="language-option active" data-lang="en">
+              <span class="flag">🇺🇸</span> English
+            </button>
+            <button class="language-option" data-lang="fr">
+              <span class="flag">🇫🇷</span> Français
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-background">
+        <div class="hero-circle hero-circle-1"></div>
+        <div class="hero-circle hero-circle-2"></div>
+        <div class="hero-circle hero-circle-3"></div>
+      </div>
+
+      <div class="container text-center">
+        <div class="animate-fade-in-up">
+          <div class="badge hero-badge">
+            <i data-lucide="leaf" class="icon-sm"></i>🌱 <span id="hero-badge">Leading Eco-Friendly Innovation</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="gradient-text-1" id="hero-title1">Breathe Better.</span>
+            <br>
+            <span class="gradient-text-2" id="hero-title2">Live Greener.</span>
+          </h1>
+
+          <p class="hero-subtitle" id="hero-subtitle">
+            Revolutionizing air conditioning with cutting-edge sustainable technology that delivers unmatched comfort while protecting our planet for future generations.
+          </p>
+
+          <div class="hero-cta">
+            <button class="btn-lg btn-primary">
+              <i data-lucide="calendar" class="icon"></i>
+              <span id="hero-cta1">Schedule Free Consultation</span>
+              <i data-lucide="arrow-right" class="icon arrow-icon"></i>
+            </button>
+            <button class="btn-lg btn-outline">
+              <i data-lucide="wind" class="icon"></i>
+              <span id="hero-cta2">Explore Solutions</span>
+            </button>
+          </div>
+
+          <!-- Stats Section -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon green">
+                <i data-lucide="users" class="icon-lg"></i>
+              </div>
+              <div class="stat-number">2,500+</div>
+              <div class="stat-text" id="stats-customers">Happy Customers</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon blue">
+                <i data-lucide="award" class="icon-lg"></i>
+              </div>
+              <div class="stat-number">15+</div>
+              <div class="stat-text" id="stats-experience">Years Experience</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon teal">
+                <i data-lucide="trending-up" class="icon-lg"></i>
+              </div>
+              <div class="stat-number">40%</div>
+              <div class="stat-text" id="stats-savings">Energy Savings</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon purple">
+                <i data-lucide="shield" class="icon-lg"></i>
+              </div>
+              <div class="stat-number">100%</div>
+              <div class="stat-text" id="stats-satisfaction">Satisfaction Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <div class="scroll-indicator-container">
+          <div class="scroll-indicator-dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-content">
+            <div class="badge">
+              <i data-lucide="globe" class="icon-sm"></i>
+              <span id="about-badge">About EcoClimatic</span>
+            </div>
+            <h2 class="section-title">
+              <span id="about-title">Pioneering the Future of</span>
+              <span class="gradient-text" id="about-titleHighlight">Sustainable Cooling</span>
+            </h2>
+            <p class="section-description" id="about-description">
+              For over 15 years, EcoClimatic has been at the forefront of sustainable HVAC innovation. We don't just install air conditioning systems – we create comprehensive climate solutions that harmonize comfort, efficiency, and environmental stewardship.
+            </p>
+
+            <div class="stats-row">
+              <div class="stat-box green">
+                <div class="stat-box-number">2,500+</div>
+                <div class="stat-box-title" id="about-installations">Eco Installations</div>
+                <div class="stat-box-subtitle" id="about-installationsSubtext">Across residential & commercial</div>
+              </div>
+              <div class="stat-box blue">
+                <div class="stat-box-number">$2.5M+</div>
+                <div class="stat-box-title" id="about-energySavings">Energy Savings</div>
+                <div class="stat-box-subtitle" id="about-energySavingsSubtext">Generated for our clients</div>
+              </div>
+            </div>
+
+            <div class="badge-row">
+              <div class="badge-secondary green">
+                <i data-lucide="check-circle" class="icon-sm"></i>
+                <span id="about-certification1">EPA Certified</span>
+              </div>
+              <div class="badge-secondary blue">
+                <i data-lucide="check-circle" class="icon-sm"></i>
+                <span id="about-certification2">ENERGY STAR Partner</span>
+              </div>
+              <div class="badge-secondary teal">
+                <i data-lucide="check-circle" class="icon-sm"></i>
+                <span id="about-certification3">Green Building Certified</span>
+              </div>
+            </div>
+
+            <button class="btn-primary btn-lg">
+              <i data-lucide="heart" class="icon"></i>
+              <span id="about-cta">Discover Our Mission</span>
+            </button>
+          </div>
+
+          <div class="about-image">
+            <div class="about-image-bg-1"></div>
+            <div class="about-image-bg-2"></div>
+            <div class="about-image-container">
+              <img src="https://placehold.co/700x600" alt="EcoClimatic Sustainable Technology" class="about-img">
+              <div class="about-image-overlay"></div>
+              <div class="about-image-caption">
+                <div class="caption-indicator">
+                  <div class="caption-indicator-dot"></div>
+                  <span>Live Environmental Impact Monitor</span>
+                </div>
+                <div class="caption-text">Reducing CO₂ emissions in real-time</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+      <div class="services-background">
+        <div class="services-circle services-circle-1"></div>
+        <div class="services-circle services-circle-2"></div>
+      </div>
+
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge">
+            <i data-lucide="wrench" class="icon-sm"></i>
+            <span id="services-badge">Our Premium Services</span>
+          </div>
+          <h2 class="section-title">
+            <span id="services-title">Complete</span>
+            <span class="gradient-text" id="services-titleHighlight">HVAC Ecosystem</span>
+          </h2>
+          <p class="section-description" id="services-description">
+            From cutting-edge installations to intelligent maintenance, we provide end-to-end sustainable climate solutions that exceed expectations.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service Card 1 -->
+          <div class="service-card">
+            <div class="service-icon blue">
+              <i data-lucide="snowflake" class="icon-xl"></i>
+            </div>
+            <h3 class="service-title" id="service1-title">Eco AC Installation</h3>
+            <p class="service-description" id="service1-description">
+              State-of-the-art energy-efficient systems with smart integration and lifetime warranty.
+            </p>
+            <div class="service-features">
+              <div class="service-feature">
+                <i data-lucide="check-circle" class="icon-sm green"></i>
+                <span id="service1-feature1">Smart Integration</span>
+              </div>
+              <div class="service-feature">
+                <i data-lucide="check-circle" class="icon-sm green"></i>
+                <span id="service1-feature2">Energy Star Rated</span>
+              </div>
+              <div class="service-feature">
+                <i data-lucide="check-circle" class="icon-sm green"></i>
+                <span id="service1-feature3">10-Year Warranty</span>
+              </div>
+            </div>
+            <button class="btn-text">
+              <span id="services-learnMore">Learn More</span>
+              <i data-lucide="arrow-right" class="icon-sm"></i>
+            </button>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div class="service-card">
+            <div class="service-icon green">
+              <i data-lucide="wrench" class="icon-xl"></i>
+            </div>
+            <h3 class="service-title" id="service2-title">Maintenance & Repair</h3>
+            <p class="service-description" id="service2-description">
+              Proactive maintenance programs and emergency repairs to maximize system longevity.
+            </p>
+            <div class="service-features">
+              <div class="service-feature">
+                <i data-lucide="check-circle" class="icon-sm green"></i>
+                <span id="service2-feature1">24/7 Emergency</span>
+              </div>
+              <div class="service-feature">
+                <i data-lucide="check-circle" class="icon-sm green"></i>
+                <span id="service2-feature2">Preventive Care</span>
+              </div>
+              <div class="service-feature">
+                <i data-lucide="check-circle" class="icon-sm green"></i>
+                <span id="service2-feature3">Performance Optimization</span>
+              </div>
+            </div>
+            <button class="btn-text">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="icon-sm"></i>
+            </button>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div class="service-card">
+            <div class="service-icon purple">
+              <i data-lucide="thermometer" class="icon-xl"></i>
+            </div>
+            <h3 class="service-title" id="service3-title">Smart Climate Control</h3>
+            <p class="service-description" id="service3-description">
+              AI-powered thermostats and IoT sensors for intelligent climate management.
+            </p>
+            <div class="service-features">
+              <div class="service-feature">
+                <i data-lucide="check-circle" class="icon-sm green"></i>
+                <span id="service3-feature1">AI Learning</span>
+              </div>
+              <div class="service-feature">
+                <i data-lucide="check-circle" class="icon-sm green"></i>
+                <span id="service3-feature2">Remote Control</span>
+              </div>
+              <div class="service-feature">
+                <i data-lucide="check-circle" class="icon-sm green"></i>
+                <span id="service3-feature3">Energy Analytics</span>
+              </div>
+            </div>
+            <button class="btn-text">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="icon-sm"></i>
+            </button>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div class="service-card">
+            <div class="service-icon teal">
+              <i data-lucide="leaf" class="icon-xl"></i>
+            </div>
+            <h3 class="service-title" id="service4-title">Sustainability Consulting</h3>
+            <p class="service-description" id="service4-description">
+              Comprehensive energy audits and green building certification assistance.
+            </p>
+            <div class="service-features">
+              <div class="service-feature">
+                <i data-lucide="check-circle" class="icon-sm green"></i>
+                <span id="service4-feature1">Energy Audits</span>
+              </div>
+              <div class="service-feature">
+                <i data-lucide="check-circle" class="icon-sm green"></i>
+                <span id="service4-feature2">Green Certification</span>
+              </div>
+              <div class="service-feature">
+                <i data-lucide="check-circle" class="icon-sm green"></i>
+                <span id="service4-feature3">ROI Analysis</span>
+              </div>
+            </div>
+            <button class="btn-text">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="icon-sm"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge">
+            <i data-lucide="image" class="icon-sm"></i>
+            <span id="portfolio-badge">Our Recent Work</span>
+          </div>
+          <h2 class="section-title">
+            <span id="portfolio-title">Explore Our</span>
+            <span class="gradient-text" id="portfolio-titleHighlight">Installation Portfolio</span>
+          </h2>
+          <p class="section-description" id="portfolio-description">
+            Browse through our recent projects showcasing our expertise in sustainable air conditioning solutions for homes and businesses.
+          </p>
+        </div>
+
+        <div class="portfolio-filters">
+          <button class="filter-btn active">
+            <i data-lucide="filter" class="icon-sm"></i>
+            <span id="portfolio-filter-all">All Projects</span>
+          </button>
+          <button class="filter-btn">
+            <span id="portfolio-filter-residential">Residential</span>
+          </button>
+          <button class="filter-btn">
+            <span id="portfolio-filter-commercial">Commercial</span>
+          </button>
+          <button class="filter-btn">
+            <span id="portfolio-filter-wall">Wall Units</span>
+          </button>
+          <button class="filter-btn">
+            <span id="portfolio-filter-floor">Floor Units</span>
+          </button>
+        </div>
+
+        <div class="portfolio-grid">
+          <!-- Portfolio Item 1 -->
+          <div class="portfolio-item" data-id="1">
+            <div class="portfolio-image-container">
+              <img src="work-1.jpg" alt="Daikin Wall-Mounted System" class="portfolio-image">
+              <div class="portfolio-overlay"></div>
+              <button class="portfolio-zoom-btn">
+                <i data-lucide="zoom-in" class="icon"></i>
+              </button>
+            </div>
+            <div class="portfolio-content">
+              <h3 class="portfolio-title" id="portfolio-item1-title">Daikin Wall-Mounted System</h3>
+              <p class="portfolio-location" id="portfolio-item1-location">Urban Residences, Downtown</p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag green" id="portfolio-item1-type">Residential</span>
+                <span class="portfolio-tag blue">Wall-Mounted</span>
+                <span class="portfolio-tag blue">Mini-Split</span>
+                <span class="portfolio-tag gray">+2</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 2 -->
+          <div class="portfolio-item" data-id="2">
+            <div class="portfolio-image-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp9iCPaE9qBhPV4ShXxJUZCALn6QbB4trXvQ&s" alt="Floor Console Installation" class="portfolio-image">
+              <div class="portfolio-overlay"></div>
+              <button class="portfolio-zoom-btn">
+                <i data-lucide="zoom-in" class="icon"></i>
+              </button>
+            </div>
+            <div class="portfolio-content">
+              <h3 class="portfolio-title" id="portfolio-item2-title">Floor Console Installation</h3>
+              <p class="portfolio-location" id="portfolio-item2-location">Coastal Villas, Beachfront</p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag green" id="portfolio-item2-type">Residential</span>
+                <span class="portfolio-tag blue">Floor Console</span>
+                <span class="portfolio-tag blue">Space-Saving</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 3 -->
+          <div class="portfolio-item" data-id="3">
+            <div class="portfolio-image-container">
+              <img src="data:image/jpeg;base64,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"
+/>
+            </div>
+            <div class="portfolio-content">
+              <h3 class="portfolio-title" id="portfolio-item3-title">Outdoor Condenser Unit</h3>
+              <p class="portfolio-location" id="portfolio-item3-location">Skyview Apartments, Midtown</p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag green" id="portfolio-item3-type">Multi-Family</span>
+                <span class="portfolio-tag blue">Outdoor Unit</span>
+                <span class="portfolio-tag blue">Daikin</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 4 -->
+          <div class="portfolio-item" data-id="4">
+            <div class="portfolio-image-container">
+              <img src="work-4.jpg" alt="Ceiling Cassette Installation" class="portfolio-image">
+              <div class="portfolio-overlay"></div>
+              <button class="portfolio-zoom-btn">
+                <i data-lucide="zoom-in" class="icon"></i>
+              </button>
+            </div>
+            <div class="portfolio-content">
+              <h3 class="portfolio-title" id="portfolio-item4-title">Ceiling Cassette Installation</h3>
+              <p class="portfolio-location" id="portfolio-item4-location">Highland Estates, North District</p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag green" id="portfolio-item4-type">Residential</span>
+                <span class="portfolio-tag blue">Ceiling Mount</span>
+                <span class="portfolio-tag blue">Multi-Level</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 5 -->
+          <div class="portfolio-item" data-id="5">
+            <div class="portfolio-image-container">
+              <img src="work-5.jpg" alt="Exterior Line Set Installation" class="portfolio-image">
+              <div class="portfolio-overlay"></div>
+              <button class="portfolio-zoom-btn">
+                <i data-lucide="zoom-in" class="icon"></i>
+              </button>
+            </div>
+            <div class="portfolio-content">
+              <h3 class="portfolio-title" id="portfolio-item5-title">Exterior Line Set Installation</h3>
+              <p class="portfolio-location" id="portfolio-item5-location">Sunnyvale Cottages, West End</p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag green" id="portfolio-item5-type">Residential</span>
+                <span class="portfolio-tag blue">Exterior Work</span>
+                <span class="portfolio-tag blue">Line Set</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-large">
+          <button class="btn-primary btn-lg">
+            <span id="portfolio-viewAll">View All Projects</span>
+            <i data-lucide="arrow-right" class="icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Portfolio Modal -->
+      <div id="portfolio-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-image-container">
+            <img id="modal-image" src="/placeholder.svg" alt="" class="modal-image">
+            <button id="modal-close" class="modal-close">
+              <i data-lucide="x" class="icon"></i>
+            </button>
+            <div class="modal-navigation">
+              <button id="modal-prev" class="modal-nav-btn">
+                <i data-lucide="chevron-left" class="icon"></i>
+              </button>
+              <button id="modal-next" class="modal-nav-btn">
+                <i data-lucide="chevron-right" class="icon"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-details">
+            <h2 id="modal-title" class="modal-title"></h2>
+            <p id="modal-location" class="modal-location"></p>
+
+            <div class="modal-info">
+              <div class="modal-info-section">
+                <h3 id="portfolio-modal-projectType" class="modal-info-title">PROJECT TYPE</h3>
+                <p id="modal-type" class="modal-info-text"></p>
+              </div>
+
+              <div class="modal-info-section">
+                <h3 id="portfolio-modal-description" class="modal-info-title">DESCRIPTION</h3>
+                <p id="modal-description" class="modal-info-text"></p>
+              </div>
+
+              <div class="modal-info-section">
+                <h3 id="portfolio-modal-features" class="modal-info-title">FEATURES</h3>
+                <div id="modal-tags" class="modal-tags"></div>
+              </div>
+
+              <button class="btn-primary full-width">
+                <span id="portfolio-modal-request">Request Similar Installation</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits-section">
+      <div class="benefits-background">
+        <div class="benefits-circle benefits-circle-1"></div>
+        <div class="benefits-circle benefits-circle-2"></div>
+      </div>
+
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge">
+            <i data-lucide="zap" class="icon-sm"></i>
+            <span id="benefits-badge">The EcoClimatic Advantage</span>
+          </div>
+          <h2 class="section-title">
+            <span id="benefits-title">Why Industry Leaders</span>
+            <span class="gradient-text" id="benefits-titleHighlight">Choose Us</span>
+          </h2>
+          <p class="section-description" id="benefits-description">
+            Experience the perfect synergy of cutting-edge technology, environmental responsibility, and unmatched customer satisfaction.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <!-- Benefit Card 1 -->
+          <div class="benefit-card">
+            <div class="benefit-icon">🌿</div>
+            <h3 class="benefit-title" id="benefit1-title">Carbon Neutral Technology</h3>
+            <p class="benefit-description" id="benefit1-description">
+              Revolutionary systems that achieve net-zero carbon emissions while delivering superior performance.
+            </p>
+            <div class="benefit-metric green" id="benefit1-metric">100% Carbon Neutral</div>
+          </div>
+
+          <!-- Benefit Card 2 -->
+          <div class="benefit-card">
+            <div class="benefit-icon">⚡</div>
+            <h3 class="benefit-title" id="benefit2-title">Ultra Energy Efficient</h3>
+            <p class="benefit-description" id="benefit2-description">
+              Advanced inverter technology and smart algorithms reduce energy consumption by up to 60%.
+            </p>
+            <div class="benefit-metric yellow" id="benefit2-metric">60% Energy Reduction</div>
+          </div>
+
+          <!-- Benefit Card 3 -->
+          <div class="benefit-card">
+            <div class="benefit-icon">🏆</div>
+            <h3 class="benefit-title" id="benefit3-title">Master Certified Experts</h3>
+            <p class="benefit-description" id="benefit3-description">
+              Industry-leading technicians with advanced certifications and continuous training programs.
+            </p>
+            <div class="benefit-metric blue" id="benefit3-metric">15+ Certifications</div>
+          </div>
+
+          <!-- Benefit Card 4 -->
+          <div class="benefit-card">
+            <div class="benefit-icon">🌍</div>
+            <h3 class="benefit-title" id="benefit4-title">Global Impact Initiative</h3>
+            <p class="benefit-description" id="benefit4-description">
+              Every installation contributes to our reforestation program and climate action projects worldwide.
+            </p>
+            <div class="benefit-metric teal" id="benefit4-metric">10,000+ Trees Planted</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="testimonials-background">
+        <div class="testimonials-circle testimonials-circle-1"></div>
+        <div class="testimonials-circle testimonials-circle-2"></div>
+      </div>
+
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge">
+            <i data-lucide="users" class="icon-sm"></i>
+            <span id="testimonials-badge">Customer Success Stories</span>
+          </div>
+          <h2 class="section-title">
+            <span id="testimonials-title">Trusted by</span>
+            <span class="gradient-text" id="testimonials-titleHighlight">Thousands</span>
+          </h2>
+          <p class="section-description" id="testimonials-description">
+            Discover why homeowners and businesses choose EcoClimatic for their sustainable cooling needs.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+            </div>
+            <blockquote class="testimonial-quote">
+              "EcoClimatic didn't just install an AC system – they transformed our home into an eco-friendly haven. Our energy bills dropped by 45% and we're contributing to a cleaner planet!"
+            </blockquote>
+            <div class="testimonial-author">
+              <img src="/images/img1.jpg" alt="Sarah Johnson" class="testimonial-avatar">
+              <div class="testimonial-info">
+                <div class="testimonial-name">Sarah Johnson</div>
+                <div class="testimonial-role">Homeowner & Environmental Advocate</div>
+                <div class="testimonial-company">Green Living Community</div>
+              </div>
+            </div>
+            <div class="testimonial-savings">
+              <div class="testimonial-savings-label" id="testimonials-annualSavings">Annual Savings:</div>
+              <div class="testimonial-savings-amount">$1,200/year</div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+            </div>
+            <blockquote class="testimonial-quote">
+              "The smart climate control system has revolutionized our office environment. Employee comfort is up, energy costs are down, and we achieved LEED certification thanks to EcoClimatic."
+            </blockquote>
+            <div class="testimonial-author">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp9iCPaE9qBhPV4ShXxJUZCALn6QbB4trXvQ&s" alt="Michael Chen" class="testimonial-avatar">
+              <div class="testimonial-info">
+                <div class="testimonial-name">Michael Chen</div>
+                <div class="testimonial-role">Facilities Manager</div>
+                <div class="testimonial-company">TechCorp Industries</div>
+              </div>
+            </div>
+            <div class="testimonial-savings">
+              <div class="testimonial-savings-label">Annual Savings:</div>
+              <div class="testimonial-savings-amount">$15,000/year</div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+              <i data-lucide="star" class="icon-sm star-filled"></i>
+            </div>
+            <blockquote class="testimonial-quote">
+              "As a developer focused on green building, EcoClimatic is our exclusive HVAC partner. Their expertise in sustainable technology is unmatched in the industry."
+            </blockquote>
+            <div class="testimonial-author">
+              <img src="data:image/jpeg;base64,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"
+/>
+            </div>
+            <div class="testimonial-savings">
+              <div class="testimonial-savings-label">Annual Savings:</div>
+              <div class="testimonial-savings-amount">$50,000/project</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-background">
+        <div class="contact-circle contact-circle-1"></div>
+        <div class="contact-circle contact-circle-2"></div>
+      </div>
+
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="badge light">
+              <i data-lucide="phone" class="icon-sm"></i>
+              <span id="contact-badge">Get Started Today</span>
+            </div>
+            <h2 class="contact-title" id="contact-title">Ready to Transform Your Space?</h2>
+            <p class="contact-description" id="contact-description">
+              Join thousands of satisfied customers who've made the switch to sustainable cooling. Get your free consultation and discover how much you can save.
+            </p>
+
+            <div class="contact-features">
+              <div class="contact-feature">
+                <i data-lucide="clock" class="icon-lg green-light"></i>
+                <div>
+                  <h3 class="contact-feature-title" id="contact-feature1-title">24/7 Emergency Service</h3>
+                  <p class="contact-feature-description" id="contact-feature1-description">Round-the-clock support when you need it most</p>
+                </div>
+              </div>
+              <div class="contact-feature">
+                <i data-lucide="shield" class="icon-lg blue-light"></i>
+                <div>
+                  <h3 class="contact-feature-title" id="contact-feature2-title">Lifetime Warranty</h3>
+                  <p class="contact-feature-description" id="contact-feature2-description">Comprehensive coverage on all installations</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-methods">
+              <div class="contact-method">
+                <i data-lucide="phone" class="icon green-light"></i>
+                <div>
+                  <div class="contact-method-value">+33 7 84 78 99 10</div>
+                  <div class="contact-method-label" id="contact-phone-title">Call for immediate assistance</div>
+                </div>
+              </div>
+              <div class="contact-method">
+                <i data-lucide="mail" class="icon blue-light"></i>
+                <div>
+                  <div class="contact-method-value">ecoclimatique0@gmail.com</div>
+                  <div class="contact-method-label" id="contact-email-title">Email us your questions</div>
+                </div>
+              </div>
+              <div class="contact-method">
+                <i data-lucide="map-pin" class="icon teal-light"></i>
+                <div>
+                  <div class="contact-method-value">France, Paris</div>
+                  <div class="contact-method-label" id="contact-address-title">Visit our showroom</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-container">
+            <form id="contact-form" class="contact-form">
+              <h3 class="contact-form-title" id="contact-form-title">Get Your Free Energy Assessment</h3>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="text" id="firstName" class="form-control" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="lastName" class="form-control" placeholder="Last Name" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" id="email" class="form-control" placeholder="Email Address" required>
+              </div>
+              
+              <div class="form-group">
+                <input type="tel" id="phone" class="form-control" placeholder="Phone Number">
+              </div>
+              
+              <div class="form-group">
+                <input type="text" id="address" class="form-control" placeholder="Property Address">
+              </div>
+              
+              <div class="form-group">
+                <textarea id="message" class="form-control" rows="4" placeholder="Tell us about your cooling needs and energy goals..."></textarea>
+              </div>
+              
+              <button type="submit" class="btn-primary btn-lg full-width">
+                <i data-lucide="calendar" class="icon"></i>
+                <span id="contact-form-submit">Schedule Free Consultation</span>
+              </button>
+              
+              <p class="form-privacy" id="contact-form-privacy">🔒 Your information is secure and will never be shared</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <img src="logo.jpg" alt="EcoClimatic Logo" class="footer-logo-image">
+              <div>
+                <h3 class="footer-logo-text">EcoClimatic</h3>
+                <p class="footer-logo-tagline">Sustainable Cooling Solutions</p>
+              </div>
+            </div>
+            <p class="footer-description" id="footer-description">
+              Leading the revolution in sustainable air conditioning with cutting-edge technology that protects both your comfort and our planet.
+            </p>
+            <div class="footer-social">
+              <button class="social-btn">Facebook</button>
+              <button class="social-btn">LinkedIn</button>
+              <button class="social-btn">Instagram</button>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h4 class="footer-heading" id="footer-services">Services</h4>
+            <ul class="footer-menu">
+              <li><a href="#" class="footer-link">AC Installation</a></li>
+              <li><a href="#" class="footer-link">System Maintenance</a></li>
+              <li><a href="#" class="footer-link">Smart Thermostats</a></li>
+              <li><a href="#" class="footer-link">Energy Consulting</a></li>
+              <li><a href="#" class="footer-link">Emergency Repair</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4 class="footer-heading" id="footer-company">Company</h4>
+            <ul class="footer-menu">
+              <li><a href="#" class="footer-link">About Us</a></li>
+              <li><a href="#" class="footer-link">Our Mission</a></li>
+              <li><a href="#" class="footer-link">Careers</a></li>
+              <li><a href="#" class="footer-link">Press</a></li>
+              <li><a href="#" class="footer-link">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4 class="footer-heading" id="footer-resources">Resources</h4>
+            <ul class="footer-menu">
+              <li><a href="#" class="footer-link">Energy Calculator</a></li>
+              <li><a href="#" class="footer-link">Maintenance Tips</a></li>
+              <li><a href="#" class="footer-link">Warranty Info</a></li>
+              <li><a href="#" class="footer-link">Support Center</a></li>
+              <li><a href="#" class="footer-link">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright" id="footer-copyright">© 2025 EcoClimatic. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <div class="certifications">
+            <span class="certification">
+              <div class="certification-indicator"></div>
+              <span id="footer-certification">Carbon Neutral Certified</span>
+            </span>
+            <span class="divider">|</span>
+            <span id="footer-partner">ENERGY STAR Partner</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
