@@ -26,7 +26,7 @@ export default function SolutionsVertesPage() {
     { name: "Solutions Vertes", href: "/solutions-vertes" },
   ];
   return (
-    <div className="relative flex flex-col min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-green-100 overflow-x-hidden">
+    <div className="relative flex flex-col min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-green-100">
       <DecorativeBg />
       <header className="bg-white/95 backdrop-blur-xl shadow-lg py-4 sticky top-0 z-20">
         <div className="container mx-auto px-6 flex justify-between items-center">
