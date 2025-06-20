@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -712,13 +711,10 @@ export default function EcoClimaticWebsite() {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-teal-400 to-green-500 rounded-3xl transform -rotate-1 opacity-10"></div>
               <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
                 <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                  <Image
-                    src="/ecoclimactic-hero.png"
+                  <img
+                    src="https://envirinfos.net/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-23-at-12.54.54-PM.jpeg"
                     alt="EcoClimatic Sustainable Technology"
-                    width={500}
-                    height={500}
-                    className="relative rounded-3xl shadow-2xl w-full h-auto object-contain"
-                    priority
+                    className="h-full w-full object-cover rounded-3xl"
                   />
                 </div>
                 <div className="absolute bottom-6 left-6 right-6">
