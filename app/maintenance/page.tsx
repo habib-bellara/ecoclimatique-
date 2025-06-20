@@ -122,7 +122,7 @@ export default function MaintenancePage() {
           </div>
         </div>
       </header>
-      <main className="flex-grow py-16 px-2 md:px-8">
+      <main className="flex-grow py-16 px-4 sm:px-6 lg:px-8">
         <div className="relative z-10 max-w-5xl mx-auto bg-white/95 rounded-3xl shadow-2xl p-6 md:p-14 w-full transition-all duration-300 hover:shadow-3xl hover:scale-[1.01]">
           <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-teal-600 to-blue-600 mb-4 text-center drop-shadow-lg">
             Maintenance des Systèmes
