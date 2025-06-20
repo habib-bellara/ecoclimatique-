@@ -133,7 +133,7 @@ export default function ControlesPage() {
           </p>
           <div className="flex flex-col md:flex-row gap-6 mb-6 justify-center items-center">
             <div className="overflow-hidden rounded-2xl w-full md:w-1/2 group">
-              <img src="https://www.espace-aubade.fr/uploads/blog/picture/630x410/2021-01-20-thermostat-intelligent-une.jpg" alt="Contrôles Intelligents" className="rounded-2xl object-cover w-full h-[28rem] group-hover:scale-105 transition-transform duration-300" />
+              <img src="https://sonergia.fr/wp-content/uploads/2024/02/N4-Thermostat-connecte-scaled-1.jpeg" alt="Contrôles Intelligents" className="rounded-2xl object-cover w-full h-[28rem] group-hover:scale-105 transition-transform duration-300" />
             </div>
           </div>
           <ul className="list-disc pl-6 mb-6 text-gray-700">
