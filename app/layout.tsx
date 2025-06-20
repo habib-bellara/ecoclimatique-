@@ -9,10 +9,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "EcoClimatic - Sustainable Cooling Solutions",
   description: "Leading provider of eco-friendly air conditioning and sustainable HVAC solutions",
-  icons: {
-    icon: "/climatisation.png",
-  },
-  generator: 'v0.dev'
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
