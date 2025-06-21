@@ -140,7 +140,7 @@ const translations = {
     benefit3: {
       title: "Premium Quality",
       description: "Industry-leading equipment with extended warranties and reliability.",
-      metric: "15+ Years",
+      metric: "20+ Years",
     },
     benefit4: {
       title: "Global Impact",
@@ -295,7 +295,7 @@ const translations = {
     benefit3: {
       title: "Qualité Premium",
       description: "Équipement de pointe de l'industrie avec garanties étendues et fiabilité.",
-      metric: "15+ Années",
+      metric: "20+ Années",
     },
     benefit4: {
       title: "Impact Global",
@@ -632,7 +632,7 @@ export default function EcoClimaticWebsite() {
                 },
                 {
                   icon: <Award className="h-8 w-8 text-blue-600" />,
-                  number: "15+",
+                  number: "20+",
                   text: t("stats.experience"),
                   bgColor: "bg-white/70",
                 },
