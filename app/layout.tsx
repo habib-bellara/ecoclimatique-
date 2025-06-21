@@ -37,8 +37,15 @@ export default function RootLayout({
     "logo": "https://ecoclimatique.netlify.app/logo-ecoclimactic.jpg",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+33-7-84-78-99-10",
+      "telephone": "06-50-66-86-00",
       "contactType": "customer service"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "42 RUE DU LANDY",
+      "addressLocality": "CLICHY LA GARENNE",
+      "postalCode": "92110",
+      "addressCountry": "FR"
     }
   }
 
