@@ -355,15 +355,15 @@ export default function EcoClimaticWebsite() {
   const router = useRouter()
 
   // États pour le formulaire de contact
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const [email, setEmail] = useState("")
-  const [phone, setPhone] = useState("")
-  const [address, setAddress] = useState("")
-  const [message, setMessage] = useState("")
-  const [sending, setSending] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [error, setError] = useState("")
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   // Translation function
   const t = (key: string) => {
@@ -409,41 +409,36 @@ export default function EcoClimaticWebsite() {
   }
 
   const handleContactSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setSending(true)
-    setSuccess(false)
-    setError("")
+    e.preventDefault();
+    setSending(true);
+    setSuccess(false);
+    setError("");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ firstName, lastName, email, phone, address, message }),
-      })
+      });
       if (res.ok) {
-        setSuccess(true)
-        setFirstName("")
-        setLastName("")
-        setEmail("")
-        setPhone("")
-        setAddress("")
-        setMessage("")
+        setSuccess(true);
+        setFirstName(""); setLastName(""); setEmail(""); setPhone(""); setAddress(""); setMessage("");
       } else {
-        const data = await res.json()
-        setError(data.error || "Erreur lors de l'envoi du message.")
+        const data = await res.json();
+        setError(data.error || "Erreur lors de l'envoi du message.");
       }
     } catch (err: any) {
-      setError(err.message || "Erreur lors de l'envoi du message.")
+      setError(err.message || "Erreur lors de l'envoi du message.");
     } finally {
-      setSending(false)
+      setSending(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-teal-50 to-green-100">
       {/* Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white/95 backdrop-blur-xl shadow-lg py-3" : "bg-transparent py-6 text-white"
+          isScrolled ? "bg-white/95 backdrop-blur-xl shadow-lg py-3" : "bg-white/80 backdrop-blur-md py-4"
         }`}
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
@@ -456,8 +451,8 @@ export default function EcoClimaticWebsite() {
               />
             </div>
             <div>
-              <div className="text-xl font-bold">EcoClimatic</div>
-              <p className="text-xs">Sustainable Cooling Solutions</p>
+              <div className="text-xl font-bold text-gray-900">EcoClimatic</div>
+              <p className="text-xs text-gray-600">Sustainable Cooling Solutions</p>
             </div>
           </div>
 
@@ -469,11 +464,11 @@ export default function EcoClimaticWebsite() {
               { name: t("nav.ourWork"), id: "portfolio" },
               { name: t("nav.benefits"), id: "benefits" },
               { name: t("nav.contact"), id: "contact" },
-            ].map(item => (
+            ].map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`transition-all duration-300 font-medium relative group py-2 ${
+                className={`text-gray-700 hover:text-green-600 transition-all duration-300 font-medium relative group py-2 ${
                   activeSection === item.id ? "text-green-600" : ""
                 }`}
               >
@@ -494,7 +489,7 @@ export default function EcoClimaticWebsite() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 text-gray-600 hover:text-green-600 hover:bg-green-50"
                 >
                   <Globe className="h-4 w-4" />
                   <span className="hidden md:inline flex items-center gap-1">
@@ -523,7 +518,7 @@ export default function EcoClimaticWebsite() {
             <Button
               variant="ghost"
               size="sm"
-              className="hidden md:flex"
+              className="hidden md:flex text-gray-600 hover:text-green-600 hover:bg-green-50"
             >
               <Phone className="h-4 w-4 mr-2" />
               +33 7 84 78 99 10
@@ -564,16 +559,22 @@ export default function EcoClimaticWebsite() {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-cover bg-center"
+        className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
         style={{
-          backgroundImage: "url('/hero-background.jpg')",
+          background: "linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%)",
         }}
       >
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="container mx-auto px-6 text-center relative z-10 text-white">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-200/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-teal-200/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-100/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-5xl mx-auto">
             {/* Badge */}
-            <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium shadow-sm border border-white/30 mb-8">
+            <div className="inline-flex items-center bg-green-100/80 backdrop-blur-sm text-green-800 px-6 py-3 rounded-full text-sm font-medium shadow-sm border border-green-200/50 mb-8">
               <Leaf className="h-4 w-4 mr-2" />🌱 {t("hero.badge")}
             </div>
 
@@ -581,6 +582,7 @@ export default function EcoClimaticWebsite() {
             <div className="mb-8">
               <h1 className="text-6xl md:text-8xl font-black leading-tight mb-4">
                 <span
+                  className="block text-green-500"
                   style={{
                     fontSize: "clamp(3rem, 8vw, 8rem)",
                     fontWeight: "900",
@@ -593,7 +595,7 @@ export default function EcoClimaticWebsite() {
             </div>
 
             {/* Description */}
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed mb-12 font-light">
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12 font-light">
               Bienvenue sur ecoclimatique, le site dédié à la climatisation respectueuse de l'environnement. Découvrez nos solutions écoclimatiques innovantes pour un confort durable et une planète préservée.
             </p>
 
@@ -602,7 +604,7 @@ export default function EcoClimaticWebsite() {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center"
-                onClick={() => scrollToSection("contact")}
+                onClick={() => scrollToSection('contact')}
               >
                 <Calendar className="mr-3 h-5 w-5" />
                 {t("hero.cta1")}
@@ -611,48 +613,49 @@ export default function EcoClimaticWebsite() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg transition-all duration-300 flex items-center"
+                className="border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg transition-all duration-300 flex items-center"
                 onClick={() => (window.location.href = "/solutions")}
               >
                 <Wind className="mr-3 h-5 w-5" />
                 {t("hero.cta2")}
               </Button>
             </div>
+
             {/* Stats Section */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {[
                 {
-                  icon: <Users className="h-8 w-8 text-green-300" />,
+                  icon: <Users className="h-8 w-8 text-green-600" />,
                   number: "2,500+",
                   text: t("stats.customers"),
-                  bgColor: "bg-white/10",
+                  bgColor: "bg-white/70",
                 },
                 {
-                  icon: <Award className="h-8 w-8 text-blue-300" />,
+                  icon: <Award className="h-8 w-8 text-blue-600" />,
                   number: "15+",
                   text: t("stats.experience"),
-                  bgColor: "bg-white/10",
+                  bgColor: "bg-white/70",
                 },
                 {
-                  icon: <TrendingUp className="h-8 w-8 text-teal-300" />,
+                  icon: <TrendingUp className="h-8 w-8 text-teal-600" />,
                   number: "40%",
                   text: t("stats.savings"),
-                  bgColor: "bg-white/10",
+                  bgColor: "bg-white/70",
                 },
                 {
-                  icon: <Shield className="h-8 w-8 text-purple-300" />,
+                  icon: <Shield className="h-8 w-8 text-purple-600" />,
                   number: "100%",
                   text: t("stats.satisfaction"),
-                  bgColor: "bg-white/10",
+                  bgColor: "bg-white/70",
                 },
               ].map((stat, idx) => (
                 <div
                   key={idx}
-                  className={`${stat.bgColor} backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 text-center`}
+                  className={`${stat.bgColor} backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30 hover:shadow-xl transition-all duration-300 text-center`}
                 >
                   <div className="flex items-center justify-center mb-4">{stat.icon}</div>
-                  <div className="text-3xl font-bold mb-2">{stat.number}</div>
-                  <div className="text-sm font-medium">{stat.text}</div>
+                  <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
+                  <div className="text-sm text-gray-600 font-medium">{stat.text}</div>
                 </div>
               ))}
             </div>
