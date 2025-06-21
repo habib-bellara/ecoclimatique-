@@ -1021,20 +1021,28 @@ export default function EcoClimaticWebsite() {
                     <div className="text-sm text-green-100">{t("contact.phone.title")}</div>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <Mail className="h-6 w-6 text-blue-200" />
-                  <div>
-                    <div className="text-lg font-semibold">ecoclimatique0@gmail.com</div>
-                    <div className="text-sm text-blue-100">{t("contact.email.title")}</div>
+                <a href="mailto:ecoclimatique0@gmail.com">
+                  <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                    <Mail className="h-6 w-6 text-blue-200" />
+                    <div>
+                      <div className="text-lg font-semibold">ecoclimatique0@gmail.com</div>
+                      <div className="text-sm text-blue-100">{t("contact.email.title")}</div>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <MapPin className="h-6 w-6 text-teal-200" />
-                  <div>
-                    <div className="text-lg font-semibold">France, Paris</div>
-                    <div className="text-sm text-teal-100">{t("contact.address.title")}</div>
+                </a>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=France,Paris"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                    <MapPin className="h-6 w-6 text-teal-200" />
+                    <div>
+                      <div className="text-lg font-semibold">France, Paris</div>
+                      <div className="text-sm text-teal-100">{t("contact.address.title")}</div>
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
 
