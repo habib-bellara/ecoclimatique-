@@ -65,7 +65,7 @@ export function PortfolioGallery() {
     {
       id: 5,
       image: "/images/img5.jpg",
-      titleKey: "portfolio.item5.title",
+      titleKey: "Installation groupe Extérieure",
       descriptionKey: "portfolio.item5.description",
       locationKey: "portfolio.item5.location",
       typeKey: "portfolio.item5.type",
