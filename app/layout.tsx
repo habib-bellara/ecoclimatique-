@@ -7,9 +7,9 @@ import { LanguageProvider } from "@/contexts/language-context"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "EcoClimatic - Sustainable Cooling Solutions",
-  description: "Leading provider of eco-friendly air conditioning and sustainable HVAC solutions",
-    generator: 'v0.dev'
+  title: "ecoclimatique",
+  description: "Leader de la climatisation écologique en France. Installation, maintenance, solutions vertes et intelligentes.",
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
