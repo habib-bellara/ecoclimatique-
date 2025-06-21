@@ -27,11 +27,13 @@ import {
   Calendar,
   ImageIcon,
   ChevronDown,
+  Menu,
 } from "lucide-react"
 import { useState, useEffect } from "react"
 import { PortfolioGallery } from "@/components/portfolio-gallery"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useRouter } from "next/navigation"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 // Translations object
 const translations = {
@@ -521,6 +523,35 @@ export default function EcoClimaticWebsite() {
               <Phone className="h-4 w-4 mr-2" />
               +33 7 84 78 99 10
             </Button>
+            <div className="lg:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent>
+                  <nav className="flex flex-col space-y-4 pt-8">
+                    {[
+                      { name: t("nav.home"), id: "home" },
+                      { name: t("nav.about"), id: "about" },
+                      { name: t("nav.services"), id: "services" },
+                      { name: t("nav.ourWork"), id: "portfolio" },
+                      { name: t("nav.benefits"), id: "benefits" },
+                      { name: t("nav.contact"), id: "contact" },
+                    ].map(item => (
+                      <button
+                        key={item.id}
+                        onClick={() => scrollToSection(item.id)}
+                        className="text-lg text-left font-medium text-gray-700 hover:text-green-600"
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </nav>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </div>
       </header>
