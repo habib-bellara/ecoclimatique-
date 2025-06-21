@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "ecoclimatique",
   description: "Leader de la climatisation écologique en France. Installation, maintenance, solutions vertes et intelligentes.",
+  viewport: "width=device-width, initial-scale=1",
   generator: 'v0.dev'
 }
 
