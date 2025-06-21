@@ -7,6 +7,11 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Globe, Phone, ChevronDown, Menu, Leaf, Zap, Shield, Wrench } from "lucide-react"
 
+export const metadata = {
+  title: "Solutions Écologiques - EcoClimatic",
+  description: "Découvrez nos solutions de climatisation et de chauffage durables, conçues pour allier confort, économies d'énergie et respect de l'environnement.",
+};
+
 const DecorativeBg = () => (
   <>
     <div className="absolute -top-32 -left-32 w-96 h-96 bg-green-100/40 rounded-full blur-3xl z-0" />
