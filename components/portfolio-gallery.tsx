@@ -100,7 +100,7 @@ export function PortfolioGallery() {
             <img
               src={selectedImage.image || "/placeholder.svg"}
               alt={t(selectedImage.titleKey)}
-              className="w-full h-full object-contain max-h-[60vh] md:max-h-[80vh]"
+              className="w-full h-auto object-contain"
             />
             <div className="absolute top-2 right-2 flex gap-2 z-50">
                 <Button size="icon" variant="ghost" className="text-white hover:bg-black/20" onClick={() => setOpen(false)}>
@@ -126,7 +126,7 @@ export function PortfolioGallery() {
               </Button>
             </div>
           </div>
-          <div className="w-full md:w-1/3 p-6 overflow-y-auto max-h-[40vh] md:max-h-[80vh]">
+          <div className="w-full md:w-1/3 p-6 overflow-y-auto">
             <h2 className="text-2xl font-bold text-gray-900">{t(selectedImage.titleKey)}</h2>
             <p className="text-sm text-gray-500 mt-1">{t(selectedImage.locationKey)}</p>
 
