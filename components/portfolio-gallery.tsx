@@ -2,10 +2,12 @@
 
 import { useState } from "react"
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { Drawer, DrawerContent, DrawerClose } from "@/components/ui/drawer"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
+import { useMobile } from "@/components/ui/use-mobile"
 
 interface PortfolioItem {
   id: number
@@ -21,6 +23,7 @@ export function PortfolioGallery() {
   const [open, setOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<PortfolioItem | null>(null)
   const { t } = useLanguage()
+  const isMobile = useMobile()
 
   const portfolioItems: PortfolioItem[] = [
     {
@@ -89,6 +92,76 @@ export function PortfolioGallery() {
     setSelectedImage(portfolioItems[previousIndex])
   }
 
+  const PortfolioModalContent = () => (
+    <>
+      {selectedImage && (
+        <div className="flex flex-col md:flex-row h-full">
+          <div className="relative w-full md:w-2/3 bg-black">
+            <img
+              src={selectedImage.image || "/placeholder.svg"}
+              alt={t(selectedImage.titleKey)}
+              className="w-full h-full object-contain max-h-[60vh] md:max-h-[80vh]"
+            />
+            <div className="absolute top-2 right-2 flex gap-2 z-50">
+                <Button size="icon" variant="ghost" className="text-white hover:bg-black/20" onClick={() => setOpen(false)}>
+                  <X className="h-5 w-5" />
+                </Button>
+            </div>
+            <div className="absolute bottom-4 left-4 right-4 flex justify-between">
+              <Button
+                size="icon"
+                variant="outline"
+                className="bg-white/20 backdrop-blur-sm hover:bg-white/40 border-white/30"
+                onClick={handlePrevious}
+              >
+                <ChevronLeft className="h-5 w-5 text-white" />
+              </Button>
+              <Button
+                size="icon"
+                variant="outline"
+                className="bg-white/20 backdrop-blur-sm hover:bg-white/40 border-white/30"
+                onClick={handleNext}
+              >
+                <ChevronRight className="h-5 w-5 text-white" />
+              </Button>
+            </div>
+          </div>
+          <div className="w-full md:w-1/3 p-6 overflow-y-auto max-h-[40vh] md:max-h-[80vh]">
+            <h2 className="text-2xl font-bold text-gray-900">{t(selectedImage.titleKey)}</h2>
+            <p className="text-sm text-gray-500 mt-1">{t(selectedImage.locationKey)}</p>
+
+            <div className="mt-4 space-y-4">
+              <div>
+                <h3 className="text-sm font-medium text-gray-500">{t("portfolio.modal.projectType")}</h3>
+                <p className="text-base font-medium text-gray-900">{t(selectedImage.typeKey)}</p>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-medium text-gray-500">{t("portfolio.modal.description")}</h3>
+                <p className="text-base text-gray-700">{t(selectedImage.descriptionKey)}</p>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-medium text-gray-500">{t("portfolio.modal.features")}</h3>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {selectedImage.tags.map((tag, index) => (
+                    <Badge key={index} className="bg-green-100 text-green-800 hover:bg-green-200">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              <Button className="w-full mt-6 bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white">
+                {t("portfolio.modal.request")}
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+
   return (
     <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -138,84 +211,19 @@ export function PortfolioGallery() {
         ))}
       </div>
 
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-5xl p-0 overflow-hidden bg-white/95 backdrop-blur-md">
-          <DialogTitle className="sr-only">
-            {selectedImage ? t(selectedImage.titleKey) : "Portfolio Item Details"}
-          </DialogTitle>
-          <DialogDescription className="sr-only">
-            {selectedImage ? t(selectedImage.descriptionKey) : "Detailed information about this portfolio item"}
-          </DialogDescription>
-          {selectedImage && (
-            <div className="flex flex-col md:flex-row h-full">
-              <div className="relative w-full md:w-2/3 bg-black">
-                <img
-                  src={selectedImage.image || "/placeholder.svg"}
-                  alt={t(selectedImage.titleKey)}
-                  className="w-full h-full object-contain max-h-[70vh]"
-                />
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  className="absolute top-2 right-2 text-white hover:bg-black/20 z-50"
-                  onClick={() => setOpen(false)}
-                >
-                  <X className="h-5 w-5" />
-                </Button>
-                <div className="absolute bottom-0 left-0 right-0 flex justify-between p-4">
-                  <Button
-                    size="icon"
-                    variant="outline"
-                    className="bg-white/20 backdrop-blur-sm hover:bg-white/40 border-white/30"
-                    onClick={handlePrevious}
-                  >
-                    <ChevronLeft className="h-5 w-5 text-white" />
-                  </Button>
-                  <Button
-                    size="icon"
-                    variant="outline"
-                    className="bg-white/20 backdrop-blur-sm hover:bg-white/40 border-white/30"
-                    onClick={handleNext}
-                  >
-                    <ChevronRight className="h-5 w-5 text-white" />
-                  </Button>
-                </div>
-              </div>
-              <div className="w-full md:w-1/3 p-6 overflow-y-auto max-h-[70vh]">
-                <h2 className="text-2xl font-bold text-gray-900">{t(selectedImage.titleKey)}</h2>
-                <p className="text-sm text-gray-500 mt-1">{t(selectedImage.locationKey)}</p>
-
-                <div className="mt-4 space-y-4">
-                  <div>
-                    <h3 className="text-sm font-medium text-gray-500">{t("portfolio.modal.projectType")}</h3>
-                    <p className="text-base font-medium text-gray-900">{t(selectedImage.typeKey)}</p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-sm font-medium text-gray-500">{t("portfolio.modal.description")}</h3>
-                    <p className="text-base text-gray-700">{t(selectedImage.descriptionKey)}</p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-sm font-medium text-gray-500">{t("portfolio.modal.features")}</h3>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {selectedImage.tags.map((tag, index) => (
-                        <Badge key={index} className="bg-green-100 text-green-800 hover:bg-green-200">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-
-                  <Button className="w-full mt-6 bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white">
-                    {t("portfolio.modal.request")}
-                  </Button>
-                </div>
-              </div>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
+      {isMobile ? (
+        <Drawer open={open} onOpenChange={setOpen}>
+            <DrawerContent className="bg-white p-0 border-0">
+                <PortfolioModalContent />
+            </DrawerContent>
+        </Drawer>
+      ) : (
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogContent className="max-w-5xl p-0 overflow-hidden bg-white/95 backdrop-blur-md border-0">
+            <PortfolioModalContent />
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   )
 }
