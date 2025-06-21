@@ -59,6 +59,8 @@ export default function InstallationFormPage() {
     { name: "Accueil", href: "/" },
     { name: "Climatisation", href: "/climatisation" },
     { name: "Maintenance", href: "/maintenance" },
+    { name: "Dépannage", href: "/depannage" },
+    { name: "Solutions", href: "/solutions" },
   ]
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -189,7 +191,7 @@ export default function InstallationFormPage() {
               className="hidden md:flex text-gray-600 hover:text-green-600 hover:bg-green-50"
             >
               <Phone className="h-4 w-4 mr-2" />
-              +33 7 84 78 99 10
+              06 50 66 86 00
             </Button>
             <div className="lg:hidden">
               <Sheet>
@@ -211,6 +213,12 @@ export default function InstallationFormPage() {
                           {link.name}
                         </button>
                       ))}
+                      <Button asChild className="lg:hidden">
+                        <a href="tel:0650668600">
+                          <Phone className="h-4 w-4 mr-2" />
+                          Appeler
+                        </a>
+                      </Button>
                     </nav>
                   </div>
                 </SheetContent>
@@ -253,113 +261,100 @@ export default function InstallationFormPage() {
                           <SelectItem value="maison">Maison</SelectItem>
                           <SelectItem value="appartement">Appartement</SelectItem>
                           <SelectItem value="bureau">Bureau</SelectItem>
-                          <SelectItem value="commerce">Commerce</SelectItem>
+                          <SelectItem value="commerce">Local commercial</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                     <div>
-                      <Label htmlFor="surfaceArea" className="font-medium text-gray-700">Superficie (m²)</Label>
-                      <Input id="surfaceArea" name="surfaceArea" type="number" placeholder="Ex: 120" className="mt-2 h-12" value={formData.surfaceArea} onChange={handleInputChange} />
+                      <Label htmlFor="surfaceArea" className="font-medium text-gray-700">Surface à climatiser (m²)</Label>
+                      <Input id="surfaceArea" name="surfaceArea" type="number" placeholder="Ex: 50" value={formData.surfaceArea} onChange={handleInputChange} className="h-12 mt-2" />
                     </div>
                   </div>
                   <div>
                     <Label htmlFor="roomCount" className="font-medium text-gray-700">Nombre de pièces à équiper</Label>
-                    <Input id="roomCount" name="roomCount" type="number" placeholder="Ex: 4" className="mt-2 h-12" value={formData.roomCount} onChange={handleInputChange} />
+                    <Select name="roomCount" onValueChange={(value) => handleSelectChange("roomCount", value)} value={formData.roomCount}>
+                      <SelectTrigger className="w-full h-12 mt-2">
+                        <SelectValue placeholder="Sélectionnez un nombre..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1">1 pièce</SelectItem>
+                        <SelectItem value="2">2 pièces</SelectItem>
+                        <SelectItem value="3">3 pièces</SelectItem>
+                        <SelectItem value="4">4 pièces</SelectItem>
+                        <SelectItem value="5+">5 pièces ou plus</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
 
-                {/* Section 2: Type d'installation */}
+                {/* Section 2: Type d'installation souhaitée */}
                 <div className="space-y-6 border-b pb-10">
                   <h3 className="text-2xl font-semibold text-gray-800 flex items-center">
                     <Check className="mr-3 text-green-600" />
-                    Type d'installation souhaité
+                    Type d'installation souhaitée
                   </h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <Checkbox id="mono-split" onCheckedChange={() => handleCheckboxChange("mono-split")} checked={formData.installationType.includes("mono-split")} />
-                      <Label htmlFor="mono-split" className="text-base">Mono-split (une seule pièce)</Label>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Checkbox id="multi-split" onCheckedChange={() => handleCheckboxChange("multi-split")} checked={formData.installationType.includes("multi-split")} />
-                      <Label htmlFor="multi-split" className="text-base">Multi-split (plusieurs pièces)</Label>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Checkbox id="gainable" onCheckedChange={() => handleCheckboxChange("gainable")} checked={formData.installationType.includes("gainable")} />
-                      <Label htmlFor="gainable" className="text-base">Gainable (discret, pour plusieurs pièces)</Label>
-                    </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {["Mono-split", "Multi-split", "Gainable", "Pompe à chaleur"].map(type => (
+                      <div
+                        key={type}
+                        className={`flex items-center space-x-3 p-4 rounded-lg cursor-pointer transition-all ${formData.installationType.includes(type) ? "bg-green-100 ring-2 ring-green-400" : "bg-gray-50 hover:bg-gray-100"
+                          }`}
+                        onClick={() => handleCheckboxChange(type)}
+                      >
+                        <Checkbox id={type} checked={formData.installationType.includes(type)} />
+                        <Label htmlFor={type} className="font-medium text-gray-800 cursor-pointer">{type}</Label>
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    <Label htmlFor="currentSystem" className="font-medium text-gray-700">Système de chauffage/climatisation actuel</Label>
+                    <Input id="currentSystem" name="currentSystem" placeholder="Ex: Radiateurs électriques" value={formData.currentSystem} onChange={handleInputChange} className="h-12 mt-2" />
+                  </div>
+                  <div>
+                    <Label htmlFor="comments" className="font-medium text-gray-700">Commentaires ou besoins spécifiques</Label>
+                    <Textarea
+                      id="comments"
+                      name="comments"
+                      placeholder="Indiquez ici toute information supplémentaire pertinente pour votre projet..."
+                      value={formData.comments}
+                      onChange={handleInputChange}
+                      className="mt-2"
+                      rows={5}
+                    />
                   </div>
                 </div>
 
-                {/* Section 3: Système actuel */}
-                <div className="space-y-6 border-b pb-10">
-                  <h3 className="text-2xl font-semibold text-gray-800 flex items-center">
-                    <Building className="mr-3 text-green-600" />
-                    Votre système actuel
-                  </h3>
-                  <div>
-                    <Label className="font-medium text-gray-700">Avez-vous un système de chauffage/climatisation ?</Label>
-                    <RadioGroup name="currentSystem" onValueChange={(value) => handleSelectChange("currentSystem", value)} value={formData.currentSystem} className="mt-3 space-y-2">
-                      <div className="flex items-center space-x-3">
-                        <RadioGroupItem value="aucun" id="aucun" />
-                        <Label htmlFor="aucun">Aucun</Label>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <RadioGroupItem value="chauffage-electrique" id="chauffage-electrique" />
-                        <Label htmlFor="chauffage-electrique">Chauffage électrique</Label>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <RadioGroupItem value="chauffage-gaz" id="chauffage-gaz" />
-                        <Label htmlFor="chauffage-gaz">Chauffage au gaz</Label>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <RadioGroupItem value="ancienne-clim" id="ancienne-clim" />
-                        <Label htmlFor="ancienne-clim">Ancienne climatisation</Label>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <RadioGroupItem value="autre" id="autre" />
-                        <Label htmlFor="autre">Autre</Label>
-                      </div>
-                    </RadioGroup>
-                  </div>
-                </div>
-                
-                {/* Section 4: Informations de contact */}
-                <div className="space-y-6 border-b pb-10">
+                {/* Section 3: Vos coordonnées */}
+                <div className="space-y-6">
                   <h3 className="text-2xl font-semibold text-gray-800 flex items-center">
                     <Users className="mr-3 text-green-600" />
                     Vos coordonnées
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <Input name="firstName" placeholder="Prénom" className="h-12" value={formData.firstName} onChange={handleInputChange} required/>
-                    <Input name="lastName" placeholder="Nom" className="h-12" value={formData.lastName} onChange={handleInputChange} required/>
+                    <Input name="firstName" placeholder="Prénom" value={formData.firstName} onChange={handleInputChange} className="h-12" required />
+                    <Input name="lastName" placeholder="Nom" value={formData.lastName} onChange={handleInputChange} className="h-12" required />
                   </div>
-                  <Input name="email" type="email" placeholder="Adresse e-mail" className="h-12" value={formData.email} onChange={handleInputChange} required/>
-                  <Input name="phone" placeholder="Numéro de téléphone" className="h-12" value={formData.phone} onChange={handleInputChange} required/>
-                  <Input name="address" placeholder="Adresse complète" className="h-12" value={formData.address} onChange={handleInputChange} required/>
+                  <Input type="email" name="email" placeholder="Adresse e-mail" value={formData.email} onChange={handleInputChange} className="h-12" required />
+                  <Input type="tel" name="phone" placeholder="Numéro de téléphone" value={formData.phone} onChange={handleInputChange} className="h-12" required />
+                  <Input name="address" placeholder="Adresse complète" value={formData.address} onChange={handleInputChange} className="h-12" required />
                 </div>
 
-                {/* Section 5: Commentaires */}
-                <div className="space-y-6">
-                   <h3 className="text-2xl font-semibold text-gray-800 flex items-center">
-                     <Square className="mr-3 text-green-600" />
-                     Commentaires
-                  </h3>
-                  <Textarea name="comments" placeholder="Ajoutez des détails supplémentaires sur votre projet ici..." rows={5} value={formData.comments} onChange={handleInputChange} />
-                </div>
-
-                <div className="pt-6">
-                  <Button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                    disabled={sending}
-                  >
-                    <Calendar className="mr-3 h-5 w-5" />
-                    {sending ? "Envoi en cours..." : "Recevoir mon devis gratuit"}
+                {/* Soumission */}
+                <div className="text-center pt-6">
+                  {success && (
+                    <div className="bg-green-100 text-green-800 p-4 rounded-lg mb-6 text-center">
+                      <p>✅ Votre demande a été envoyée avec succès ! Nous vous contacterons dans les plus brefs délais.</p>
+                    </div>
+                  )}
+                  {error && (
+                    <div className="bg-red-100 text-red-800 p-4 rounded-lg mb-6 text-center">
+                      <p>❌ {error}</p>
+                    </div>
+                  )}
+                  <Button type="submit" size="lg" className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white text-lg px-12 py-7" disabled={sending}>
+                    {sending ? "Envoi en cours..." : "Obtenir mon devis gratuit"}
                   </Button>
-                  {success && <p className="text-center text-green-700 font-semibold mt-4">Merci ! Votre demande a été envoyée avec succès. Nous vous contacterons bientôt.</p>}
-                  {error && <p className="text-center text-red-600 mt-4">{error}</p>}
-                  <p className="text-center text-sm text-gray-500 mt-4">🔒 Vos informations sont sécurisées et confidentielles.</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-500 mt-4">
                     Pour toute question, appelez-nous au{" "}
                     <a href="tel:0650668600" className="font-medium text-green-600 hover:underline">
                       06 50 66 86 00
