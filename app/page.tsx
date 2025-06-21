@@ -119,6 +119,42 @@ const translations = {
       titleHighlight: "Projects",
       description: "Explore our latest sustainable cooling installations and see how we're making a difference.",
       viewAll: "View All Projects",
+      item1: {
+        title: "Wall-Mounted Unit Installation",
+        description: "A sleek and efficient wall-mounted unit, perfect for modern homes.",
+        location: "Paris, France",
+        type: "Residential",
+      },
+      item2: {
+        title: "Floor Console System",
+        description: "A powerful and discreet floor console system, ideal for large living spaces.",
+        location: "Lyon, France",
+        type: "Residential",
+      },
+      item3: {
+        title: "Outdoor Unit Setup",
+        description: "Professional and clean installation of a Daikin outdoor unit.",
+        location: "Marseille, France",
+        type: "Commercial",
+      },
+      item4: {
+        title: "Ceiling-Mounted Cassette",
+        description: "A multi-level custom installation of a ceiling-mounted cassette.",
+        location: "Nice, France",
+        type: "Commercial",
+      },
+      item5: {
+        title: "Exterior Line Set Installation",
+        description: "A professional and clean installation of an exterior line set.",
+        location: "Bordeaux, France",
+        type: "Residential",
+      },
+      modal: {
+        projectType: "Project Type",
+        description: "Description",
+        features: "Features",
+        request: "Request a Similar Project",
+      },
     },
     benefits: {
       badge: "Why Choose EcoClimatic",
@@ -126,26 +162,32 @@ const translations = {
       titleHighlight: "Benefits",
       description:
         "Experience the advantages of choosing sustainable cooling solutions that benefit both you and the environment.",
-    },
-    benefit1: {
-      title: "Eco-Friendly",
-      description: "Reduce your carbon footprint with our sustainable cooling technologies.",
-      metric: "80% Less CO₂",
-    },
-    benefit2: {
-      title: "Energy Efficient",
-      description: "Save significantly on energy bills with our high-efficiency systems.",
-      metric: "40% Savings",
-    },
-    benefit3: {
-      title: "Premium Quality",
-      description: "Industry-leading equipment with extended warranties and reliability.",
-      metric: "20+ Years",
-    },
-    benefit4: {
-      title: "Global Impact",
-      description: "Join thousands of customers making a positive environmental impact.",
-      metric: "2,500+ Homes",
+      item1: {
+        title: "Eco-Friendly",
+        description: "Reduce your carbon footprint with our sustainable cooling technologies.",
+        metric: "80% Less CO₂",
+      },
+      item2: {
+        title: "Energy Efficient",
+        description: "Save significantly on energy bills with our high-efficiency systems.",
+        metric: "40% Savings",
+      },
+      item3: {
+        title: "Premium Quality",
+        description: "Industry-leading equipment with extended warranties and reliability.",
+        metric: "20+ Years",
+      },
+      item4: {
+        title: "Global Impact",
+        description: "Join thousands of customers making a positive environmental impact.",
+        metric: "2,500+ Homes",
+      },
+      modal: {
+        projectType: "Project Type",
+        description: "Description",
+        features: "Caractéristiques",
+        request: "Demander un Projet Similaire",
+      },
     },
     testimonials: {
       badge: "Customer Stories",
@@ -274,6 +316,42 @@ const translations = {
       description:
         "Explorez nos dernières installations de refroidissement durables et voyez comment nous faisons la différence.",
       viewAll: "Voir Tous les Projets",
+      item1: {
+        title: "Installation d'Unité Murale",
+        description: "Une unité murale élégante et efficace, parfaite pour les maisons modernes.",
+        location: "Paris, France",
+        type: "Résidentiel",
+      },
+      item2: {
+        title: "Système de Console au Sol",
+        description: "Un système de console au sol puissant et discret, idéal pour les grands espaces de vie.",
+        location: "Lyon, France",
+        type: "Résidentiel",
+      },
+      item3: {
+        title: "Installation d'Unité Extérieure",
+        description: "Installation professionnelle et propre d'une unité extérieure Daikin.",
+        location: "Marseille, France",
+        type: "Commercial",
+      },
+      item4: {
+        title: "Cassette de Plafond",
+        description: "Une installation personnalisée sur plusieurs niveaux d'une cassette de plafond.",
+        location: "Nice, France",
+        type: "Commercial",
+      },
+      item5: {
+        title: "Installation groupe Extérieure",
+        description: "Une installation professionnelle et propre d'un ensemble de lignes extérieures.",
+        location: "Bordeaux, France",
+        type: "Résidentiel",
+      },
+      modal: {
+        projectType: "Type de Projet",
+        description: "Description",
+        features: "Caractéristiques",
+        request: "Demander un Projet Similaire",
+      },
     },
     benefits: {
       badge: "Pourquoi Choisir EcoClimatic",
@@ -281,26 +359,32 @@ const translations = {
       titleHighlight: "Inégalés",
       description:
         "Découvrez les avantages de choisir des solutions de refroidissement durables qui profitent à la fois à vous et à l'environnement.",
-    },
-    benefit1: {
-      title: "Écologique",
-      description: "Réduisez votre empreinte carbone avec nos technologies de refroidissement durables.",
-      metric: "80% Moins de CO₂",
-    },
-    benefit2: {
-      title: "Écoénergétique",
-      description: "Économisez considérablement sur les factures d'énergie avec nos systèmes haute efficacité.",
-      metric: "40% d'Économies",
-    },
-    benefit3: {
-      title: "Qualité Premium",
-      description: "Équipement de pointe de l'industrie avec garanties étendues et fiabilité.",
-      metric: "20+ Années",
-    },
-    benefit4: {
-      title: "Impact Global",
-      description: "Rejoignez des milliers de clients qui ont un impact environnemental positif.",
-      metric: "2 500+ Maisons",
+      item1: {
+        title: "Écologique",
+        description: "Réduisez votre empreinte carbone avec nos technologies de refroidissement durables.",
+        metric: "80% Moins de CO₂",
+      },
+      item2: {
+        title: "Écoénergétique",
+        description: "Économisez considérablement sur les factures d'énergie avec nos systèmes haute efficacité.",
+        metric: "40% d'Économies",
+      },
+      item3: {
+        title: "Qualité Premium",
+        description: "Équipement de pointe de l'industrie avec garanties étendues et fiabilité.",
+        metric: "20+ Années",
+      },
+      item4: {
+        title: "Impact Global",
+        description: "Rejoignez des milliers de clients qui ont un impact environnemental positif.",
+        metric: "2 500+ Maisons",
+      },
+      modal: {
+        projectType: "Type de Projet",
+        description: "Description",
+        features: "Caractéristiques",
+        request: "Demander un Projet Similaire",
+      },
     },
     testimonials: {
       badge: "Témoignages Clients",
