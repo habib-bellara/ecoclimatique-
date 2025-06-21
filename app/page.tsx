@@ -521,7 +521,7 @@ export default function EcoClimaticWebsite() {
               className="hidden md:flex text-gray-600 hover:text-green-600 hover:bg-green-50"
             >
               <Phone className="h-4 w-4 mr-2" />
-              +33 7 84 78 99 10
+              06 50 66 86 00
             </Button>
             <div className="lg:hidden">
               <Sheet>
@@ -1030,18 +1030,20 @@ export default function EcoClimaticWebsite() {
               </div>
 
               <div className="space-y-6">
-                <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <Phone className="h-6 w-6 text-green-200" />
-                  <div>
-                    <div className="text-lg font-semibold">(+33) 7 84 78 99 10</div>
-                    <div className="text-sm text-green-100">{t("contact.phone.title")}</div>
+                <a href="tel:0650668600">
+                  <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                    <Phone className="h-6 w-6 text-green-200" />
+                    <div>
+                      <div className="text-lg font-semibold">06 50 66 86 00</div>
+                      <div className="text-sm text-green-100">{t("contact.phone.title")}</div>
+                    </div>
                   </div>
-                </div>
-                <a href="mailto:ecoclimatique0@gmail.com">
+                </a>
+                <a href="mailto:contact@ecoclimatic.com">
                   <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                     <Mail className="h-6 w-6 text-blue-200" />
                     <div>
-                      <div className="text-lg font-semibold">ecoclimatique0@gmail.com</div>
+                      <div className="text-lg font-semibold">contact@ecoclimatic.com</div>
                       <div className="text-sm text-blue-100">{t("contact.email.title")}</div>
                     </div>
                   </div>
