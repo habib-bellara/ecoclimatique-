@@ -313,6 +313,13 @@ export default function MaintenancePage() {
                   <p className="text-center text-sm text-gray-500 mt-4">
                     🔒 Vos informations sont sécurisées et confidentielles.
                   </p>
+                  <p className="text-sm text-gray-500">
+                    Pour toute question, appelez-nous au{" "}
+                    <a href="tel:0650668600" className="font-medium text-green-600 hover:underline">
+                      06 50 66 86 00
+                    </a>
+                    .
+                  </p>
                 </div>
               </form>
             </CardContent>

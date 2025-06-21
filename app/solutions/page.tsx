@@ -114,14 +114,13 @@ export default function SolutionsPage() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="hidden md:flex text-gray-600 hover:text-green-600 hover:bg-green-50"
-            >
-              <Phone className="h-4 w-4 mr-2" />
-              +33 7 84 78 99 10
-            </Button>
+            <div className="hidden lg:flex items-center space-x-2 text-sm">
+              <Phone className="h-4 w-4" />
+              <span>Une question? Appelez-nous</span>
+              <a href="tel:0650668600" className="font-semibold text-green-600 hover:underline">
+                06 50 66 86 00
+              </a>
+            </div>
             <div className="lg:hidden">
               <Sheet>
                 <SheetTrigger asChild>
@@ -142,13 +141,11 @@ export default function SolutionsPage() {
                           {link.name}
                         </button>
                       ))}
-                      <Button
-                        variant="outline"
-                        className="w-full"
-                        onClick={() => window.open("tel:+33784789910", "_self")}
-                      >
-                        <Phone className="h-4 w-4 mr-2" />
-                        Appeler
+                      <Button asChild className="lg:hidden">
+                        <a href="tel:0650668600">
+                          <Phone className="h-4 w-4 mr-2" />
+                          Appeler
+                        </a>
                       </Button>
                     </nav>
                   </div>
