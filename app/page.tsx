@@ -252,20 +252,18 @@ const translations = {
       feature3: "Support 24/7",
     },
     service3: {
-      title: "Contrôles Intelligents",
-      description:
-        "Systèmes de contrôle climatique avancés avec optimisation alimentée par IA et surveillance à distance.",
-      feature1: "Optimisation IA",
-      feature2: "Contrôle à Distance",
-      feature3: "Analyses Énergétiques",
+      title: "Smart Controls",
+      description: "Advanced climate control systems with AI-powered optimization and remote monitoring.",
+      feature1: "AI Optimization",
+      feature2: "Remote Control",
+      feature3: "Energy Analytics",
     },
     service4: {
-      title: "Solutions Vertes",
-      description:
-        "Alternatives de refroidissement écologiques qui réduisent l'empreinte carbone et la consommation d'énergie.",
-      feature1: "Neutre en Carbone",
-      feature2: "Énergie Renouvelable",
-      feature3: "Certification Écologique",
+      title: "Green Solutions",
+      description: "Eco-friendly cooling alternatives that reduce carbon footprint and energy consumption.",
+      feature1: "Carbon Neutral",
+      feature2: "Renewable Energy",
+      feature3: "Eco Certification",
     },
     portfolio: {
       badge: "Nos Travaux Récents",
@@ -739,7 +737,7 @@ export default function EcoClimaticWebsite() {
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">{t("services.description")}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:max-w-5xl mx-auto">
             {[
               {
                 icon: <Snowflake className="h-10 w-10" />,
@@ -754,20 +752,6 @@ export default function EcoClimaticWebsite() {
                 description: t("service2.description"),
                 color: "green",
                 features: [t("service2.feature1"), t("service2.feature2"), t("service2.feature3")],
-              },
-              {
-                icon: <Thermometer className="h-10 w-10" />,
-                title: t("service3.title"),
-                description: t("service3.description"),
-                color: "purple",
-                features: [t("service3.feature1"), t("service3.feature2"), t("service3.feature3")],
-              },
-              {
-                icon: <Leaf className="h-10 w-10" />,
-                title: t("service4.title"),
-                description: t("service4.description"),
-                color: "teal",
-                features: [t("service4.feature1"), t("service4.feature2"), t("service4.feature3")],
               },
             ].map((service, idx) => (
               <Card

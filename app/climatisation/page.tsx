@@ -1,12 +1,31 @@
 "use client"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog"
-import { Globe, Phone, ChevronDown, Menu, Mail, MapPin } from "lucide-react"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+import { Checkbox } from "@/components/ui/checkbox"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Building, Home, Calendar, Users, Square, Check, Leaf, Globe, Phone, ChevronDown, Menu } from "lucide-react"
+
+interface FormData {
+  propertyType: string;
+  surfaceArea: string;
+  roomCount: string;
+  installationType: string[];
+  currentSystem: string;
+  comments: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  address: string;
+}
 
 const DecorativeBg = () => (
   <>
@@ -16,23 +35,99 @@ const DecorativeBg = () => (
   </>
 )
 
-export default function ClimatisationPage() {
+export default function InstallationFormPage() {
+  const [formData, setFormData] = useState<FormData>({
+    propertyType: "",
+    surfaceArea: "",
+    roomCount: "",
+    installationType: [],
+    currentSystem: "",
+    comments: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    address: "",
+  })
+  const [sending, setSending] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState("")
   const [language, setLanguage] = useState("fr")
   const router = useRouter()
+
   const navLinks = [
     { name: "Accueil", href: "/" },
     { name: "Climatisation", href: "/climatisation" },
     { name: "Maintenance", href: "/maintenance" },
-    { name: "Contrôles", href: "/controles" },
-    { name: "Solutions Vertes", href: "/solutions-vertes" },
-  ];
+  ]
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleCheckboxChange = (value: string) => {
+    setFormData(prev => {
+      const newInstallationType = prev.installationType.includes(value)
+        ? prev.installationType.filter(item => item !== value)
+        : [...prev.installationType, value]
+      return { ...prev, installationType: newInstallationType }
+    })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setSending(true)
+    setError("")
+    setSuccess(false)
+
+    try {
+      const response = await fetch('/api/installation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSuccess(true)
+        setFormData({
+          propertyType: "",
+          surfaceArea: "",
+          roomCount: "",
+          installationType: [],
+          currentSystem: "",
+          comments: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          address: "",
+        })
+      } else {
+        setError(result.error || "Une erreur s'est produite. Veuillez réessayer.")
+      }
+    } catch (err) {
+      setError("Une erreur de connexion s'est produite. Veuillez réessayer.")
+    }
+
+    setSending(false)
+  }
+
   return (
     <div className="relative flex flex-col min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-green-100 overflow-clip">
       <DecorativeBg />
       {/* Header */}
       <header className="bg-white/95 backdrop-blur-xl shadow-lg py-4 sticky top-0 z-20">
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => router.push("/") }>
+          <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => router.push("/")}>
             <div className="relative">
               <img
                 src="/logo-ecoclimactic.jpg"
@@ -46,7 +141,7 @@ export default function ClimatisationPage() {
             </div>
           </div>
           <nav className="hidden lg:flex space-x-4">
-            {navLinks.map((link) => (
+            {navLinks.map(link => (
               <button
                 key={link.name}
                 className="text-gray-700 hover:text-green-600 transition-all duration-300 font-medium relative group py-2 px-2"
@@ -105,140 +200,173 @@ export default function ClimatisationPage() {
                   </Button>
                 </SheetTrigger>
                 <SheetContent>
-                    <div className="pt-8">
-                        <nav className="flex flex-col space-y-4">
-                            {navLinks.map((link) => (
-                                <button
-                                    key={link.name}
-                                    className="text-lg text-left font-medium text-gray-700 hover:text-green-600 transition-colors duration-200"
-                                    onClick={() => router.push(link.href)}
-                                >
-                                    {link.name}
-                                </button>
-                            ))}
-                        </nav>
-                    </div>
+                  <div className="pt-8">
+                    <nav className="flex flex-col space-y-4">
+                      {navLinks.map(link => (
+                        <button
+                          key={link.name}
+                          className="text-lg text-left font-medium text-gray-700 hover:text-green-600 transition-colors duration-200"
+                          onClick={() => router.push(link.href)}
+                        >
+                          {link.name}
+                        </button>
+                      ))}
+                    </nav>
+                  </div>
                 </SheetContent>
               </Sheet>
             </div>
           </div>
         </div>
       </header>
-      <main className="flex-grow py-16 px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10 max-w-5xl mx-auto bg-white/95 rounded-3xl shadow-2xl p-6 md:p-14 w-full transition-all duration-300 hover:shadow-3xl hover:scale-[1.01]">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-teal-600 to-blue-600 mb-4 text-center drop-shadow-lg">
-            Installateur Climatisation dans le Val-d'Oise 95
-          </h1>
-          <div className="mx-auto w-24 h-1 bg-gradient-to-r from-green-400 via-teal-400 to-blue-400 rounded-full mb-8" />
-          <p className="mb-6 text-lg text-gray-700">
-            Installée à Eaubonne près de Cergy Pontoise 95, la société ecoclimatique intervient auprès de particuliers et professionnels de la région Ile-de-France, des Hauts-de-Seine (92) et du Val-d'Oise (95) pour réaliser vos travaux de climatisation, ventilation et extracteurs d'air. Nos installateurs expérimentés maîtrisent l'installation, la pose et la maintenance des systèmes de climatisation. ecoclimatique : le pro de la Clim à Eaubonne et ses alentours
-          </p>
-          <p className="mb-6 text-gray-700">
-            Pour assurer une climatisation efficace et optimale d'une pièce, plusieurs facteurs doivent être pris en compte, tels que le volume de la pièce, son usage, la circulation et le renouvellement de l'air, ainsi que son orientation par rapport au soleil.
-          </p>
-          <div className="flex items-center gap-3 mb-4 mt-8">
-            <span className="inline-flex items-center px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" stroke="#22c55e" strokeWidth="2" strokeLinecap="round"/></svg> Nos produits</span>
-            <span className="h-0.5 flex-1 bg-gradient-to-r from-green-200 via-teal-200 to-blue-200 rounded-full" />
-          </div>
-          <ul className="list-disc pl-6 mb-6 text-gray-700">
-            <li className="mb-2"><b>Climatisation réversible (Mono-split ou Multi-split)</b> : Adaptée à tous types de bâtiments, qu'ils soient neufs ou anciens, ainsi qu'à des espaces professionnels, cette solution intègre une unité extérieure et une ou plusieurs unités intérieures qui peuvent être murales, encastrées au plafond ou sous forme de cassettes.</li>
-            <li className="mb-2"><b>Climatisation gainable</b> : Parfaite pour ceux qui recherchent un maximum de confort et de discrétion, la climatisation gainable convient aussi bien aux constructions neuves qu'aux rénovations. Ce système nécessite un espace sous le plafond pour son installation et permet de climatiser discrètement plusieurs pièces à la fois.</li>
-          </ul>
-          <p className="mb-6 text-gray-700">
-            Nous intervenons sur différents systèmes de climatisation pour les particuliers et les professionnels (bureaux, entreprises, entrepôts) : climatiseur réversible, à split, gainable, mural, systèmes de climatiseurs DVR ou VRV, CTA (centrale de traitement d'air)...
-          </p>
-          <div className="flex flex-col md:flex-row gap-6 mb-6">
-            <div className="overflow-hidden rounded-2xl w-full md:w-1/2 group">
-              <Image src="/A (1).jpg" alt="Climatisation 1" width={1200} height={448} className="rounded-2xl object-cover w-full h-[28rem] group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <div className="overflow-hidden rounded-2xl w-full md:w-1/2 group">
-              <Image src="/A (2).jpg" alt="Climatisation 2" width={1200} height={448} className="rounded-2xl object-cover w-full h-[28rem] group-hover:scale-105 transition-transform duration-300" />
-            </div>
-          </div>
-          <p className="mb-6 text-gray-700">
-            Contactez-nous pour un devis gratuit personnalisé ! Suite à votre appel, nous procéderons à l'installation de votre climatisation dans le Val-d'Oise (95), dans les Hauts-de-Seine 92 (Asnières-sur-Seine, Colombes...) et Ile-de-France interviendra chez vous (au sein de votre habitation ou dans vos locaux professionnels) pour établir un bilan thermique afin de vous proposer le système de climatisation qui répondra parfaitement à vos besoins.
-          </p>
-          <p className="mb-6 text-gray-700">
-            Ensuite, nous procéderons à l'installation de votre système de climatisation, qu'il soit standard ou réversible et nous fournirons également toutes les explications nécessaires sur le fonctionnement de votre nouvel équipement, adaptées à vos besoins spécifiques.
-          </p>
-          <div className="flex items-center gap-3 mb-4 mt-8">
-            <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke="#2563eb" strokeWidth="2" strokeLinecap="round"/></svg> Installation et pose de climatisation réversible Val-d'Oise 95</span>
-            <span className="h-0.5 flex-1 bg-gradient-to-r from-blue-200 via-teal-200 to-green-200 rounded-full" />
-          </div>
-          <p className="mb-6 text-gray-700">
-            Vous envisagez d'installer un système de climatisation dans votre domicile ou vos bureaux ? Vous recherchez une solution de climatisation efficace pour votre magasin ? Ou peut-être souhaitez-vous remplacer votre ancien système par un modèle de climatisation réversible plus moderne ?
-          </p>
-          <p className="mb-6 text-gray-700">
-            En neuf ou en rénovation, dans votre maison ou dans vos bureaux professionnels, chez les particuliers ou les entreprises, nos techniciens interviennent pour rafraîchir votre environnement de vie ou de travail.
-          </p>
-          <h2 className="text-2xl font-bold text-green-600 mb-4">Les solutions de chauffage et climatisation ecoclimatique c'est :</h2>
-          <ul className="list-disc pl-6 mb-6 text-gray-700">
-            <li>Un seul appareil pour assurer le chauffage et la climatisation de votre habitation ou bureau</li>
-            <li>Des économies d'énergie tout au long de l'année grâce aux énergies renouvelables présentes dans l'air.</li>
-            <li>Un intérieur assaini et déshumidifié</li>
-          </ul>
-          <p className="mb-6 text-gray-700">
-            Demandez un devis à nos techniciens pour vos installations de climatisation et pompe à chaleur. ecoclimatique vous propose l'installation, la pose, l'entretien de climatisation 95, la réparation, le dépannage et la maintenance de vos climatisations réversibles et pompes à chaleur dans tout le Val-d'Oise 95 et l'Ile-de-France.
-          </p>
-          <p className="mb-6 text-gray-700">
-            Pour réfrigérer ou réchauffer votre local commercial, votre entrepôt, votre bureau, votre maison ou votre appartement, nos experts CVC vous garantissent un service de qualité.
-          </p>
-          <div className="text-center mt-8">
-            <Dialog>
-              <DialogTrigger asChild>
-                <button type="button" className="bg-gradient-to-r from-green-600 via-teal-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white px-10 py-5 text-xl font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-3 mx-auto">
-                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M2 12h20M12 2v20" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
-                  Contactez nos experts de la climatisation 
-                </button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px] bg-white rounded-2xl shadow-2xl">
-                  <DialogHeader>
-                      <DialogTitle className="text-2xl font-bold text-gray-900 text-center">Contactez-nous</DialogTitle>
-                      <DialogDescription className="text-center text-gray-600 pt-2">
-                          Nos informations de contact pour toute demande ou devis.
-                      </DialogDescription>
-                  </DialogHeader>
-                  <div className="grid gap-6 py-6">
-                      <div className="flex items-center gap-4">
-                          <div className="p-3 bg-green-100 rounded-full">
-                              <Phone className="h-6 w-6 text-green-600" />
-                          </div>
-                          <div>
-                              <h3 className="font-semibold text-gray-800">Téléphone</h3>
-                              <a href="tel:+33784789910" className="text-gray-600 hover:text-green-600 transition-colors">+33 7 84 78 99 10</a>
-                          </div>
-                      </div>
-                      <div className="flex items-center gap-4">
-                          <div className="p-3 bg-blue-100 rounded-full">
-                              <Mail className="h-6 w-6 text-blue-600" />
-                          </div>
-                          <div>
-                              <h3 className="font-semibold text-gray-800">Email</h3>
-                              <a href="mailto:ecoclimatique0@gmail.com" className="text-gray-600 hover:text-blue-600 transition-colors">ecoclimatique0@gmail.com</a>
-                          </div>
-                      </div>
-                      <div className="flex items-center gap-4">
-                          <div className="p-3 bg-teal-100 rounded-full">
-                              <MapPin className="h-6 w-6 text-teal-600" />
-                          </div>
-                          <div>
-                              <h3 className="font-semibold text-gray-800">Adresse</h3>
-                              <p className="text-gray-600">France, Paris</p>
-                          </div>
-                      </div>
+
+      <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 z-10">
+        <div className="max-w-4xl mx-auto">
+          <Card className="bg-white/90 backdrop-blur-sm shadow-2xl rounded-3xl border-0">
+            <CardHeader className="text-center p-8">
+              <div className="mx-auto bg-gradient-to-r from-green-500 to-teal-500 p-4 rounded-full w-20 h-20 flex items-center justify-center -mt-20 shadow-lg">
+                <Leaf className="text-white h-10 w-10" />
+              </div>
+              <CardTitle className="text-4xl font-extrabold text-gray-900 mt-6">
+                Demande de Devis d'Installation
+              </CardTitle>
+              <CardDescription className="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
+                Remplissez ce formulaire pour obtenir une estimation personnalisée pour votre projet de climatisation.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-8">
+              <form onSubmit={handleSubmit} className="space-y-10">
+                {/* Section 1: Informations sur la propriété */}
+                <div className="space-y-6 border-b pb-10">
+                  <h3 className="text-2xl font-semibold text-gray-800 flex items-center">
+                    <Home className="mr-3 text-green-600" />
+                    Informations sur votre propriété
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="propertyType" className="font-medium text-gray-700">Type de propriété</Label>
+                      <Select name="propertyType" onValueChange={(value) => handleSelectChange("propertyType", value)} value={formData.propertyType}>
+                        <SelectTrigger className="w-full h-12 mt-2">
+                          <SelectValue placeholder="Sélectionnez un type..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="maison">Maison</SelectItem>
+                          <SelectItem value="appartement">Appartement</SelectItem>
+                          <SelectItem value="bureau">Bureau</SelectItem>
+                          <SelectItem value="commerce">Commerce</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label htmlFor="surfaceArea" className="font-medium text-gray-700">Superficie (m²)</Label>
+                      <Input id="surfaceArea" name="surfaceArea" type="number" placeholder="Ex: 120" className="mt-2 h-12" value={formData.surfaceArea} onChange={handleInputChange} />
+                    </div>
                   </div>
-                  <DialogFooter>
-                      <DialogClose asChild>
-                          <Button type="button" variant="ghost">Fermer</Button>
-                      </DialogClose>
-                  </DialogFooter>
-              </DialogContent>
-            </Dialog>
-          </div>
+                  <div>
+                    <Label htmlFor="roomCount" className="font-medium text-gray-700">Nombre de pièces à équiper</Label>
+                    <Input id="roomCount" name="roomCount" type="number" placeholder="Ex: 4" className="mt-2 h-12" value={formData.roomCount} onChange={handleInputChange} />
+                  </div>
+                </div>
+
+                {/* Section 2: Type d'installation */}
+                <div className="space-y-6 border-b pb-10">
+                  <h3 className="text-2xl font-semibold text-gray-800 flex items-center">
+                    <Check className="mr-3 text-green-600" />
+                    Type d'installation souhaité
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <Checkbox id="mono-split" onCheckedChange={() => handleCheckboxChange("mono-split")} checked={formData.installationType.includes("mono-split")} />
+                      <Label htmlFor="mono-split" className="text-base">Mono-split (une seule pièce)</Label>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Checkbox id="multi-split" onCheckedChange={() => handleCheckboxChange("multi-split")} checked={formData.installationType.includes("multi-split")} />
+                      <Label htmlFor="multi-split" className="text-base">Multi-split (plusieurs pièces)</Label>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Checkbox id="gainable" onCheckedChange={() => handleCheckboxChange("gainable")} checked={formData.installationType.includes("gainable")} />
+                      <Label htmlFor="gainable" className="text-base">Gainable (discret, pour plusieurs pièces)</Label>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Section 3: Système actuel */}
+                <div className="space-y-6 border-b pb-10">
+                  <h3 className="text-2xl font-semibold text-gray-800 flex items-center">
+                    <Building className="mr-3 text-green-600" />
+                    Votre système actuel
+                  </h3>
+                  <div>
+                    <Label className="font-medium text-gray-700">Avez-vous un système de chauffage/climatisation ?</Label>
+                    <RadioGroup name="currentSystem" onValueChange={(value) => handleSelectChange("currentSystem", value)} value={formData.currentSystem} className="mt-3 space-y-2">
+                      <div className="flex items-center space-x-3">
+                        <RadioGroupItem value="aucun" id="aucun" />
+                        <Label htmlFor="aucun">Aucun</Label>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <RadioGroupItem value="chauffage-electrique" id="chauffage-electrique" />
+                        <Label htmlFor="chauffage-electrique">Chauffage électrique</Label>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <RadioGroupItem value="chauffage-gaz" id="chauffage-gaz" />
+                        <Label htmlFor="chauffage-gaz">Chauffage au gaz</Label>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <RadioGroupItem value="ancienne-clim" id="ancienne-clim" />
+                        <Label htmlFor="ancienne-clim">Ancienne climatisation</Label>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <RadioGroupItem value="autre" id="autre" />
+                        <Label htmlFor="autre">Autre</Label>
+                      </div>
+                    </RadioGroup>
+                  </div>
+                </div>
+                
+                {/* Section 4: Informations de contact */}
+                <div className="space-y-6 border-b pb-10">
+                  <h3 className="text-2xl font-semibold text-gray-800 flex items-center">
+                    <Users className="mr-3 text-green-600" />
+                    Vos coordonnées
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <Input name="firstName" placeholder="Prénom" className="h-12" value={formData.firstName} onChange={handleInputChange} required/>
+                    <Input name="lastName" placeholder="Nom" className="h-12" value={formData.lastName} onChange={handleInputChange} required/>
+                  </div>
+                  <Input name="email" type="email" placeholder="Adresse e-mail" className="h-12" value={formData.email} onChange={handleInputChange} required/>
+                  <Input name="phone" placeholder="Numéro de téléphone" className="h-12" value={formData.phone} onChange={handleInputChange} required/>
+                  <Input name="address" placeholder="Adresse complète" className="h-12" value={formData.address} onChange={handleInputChange} required/>
+                </div>
+
+                {/* Section 5: Commentaires */}
+                <div className="space-y-6">
+                   <h3 className="text-2xl font-semibold text-gray-800 flex items-center">
+                     <Square className="mr-3 text-green-600" />
+                     Commentaires
+                  </h3>
+                  <Textarea name="comments" placeholder="Ajoutez des détails supplémentaires sur votre projet ici..." rows={5} value={formData.comments} onChange={handleInputChange} />
+                </div>
+
+                <div className="pt-6">
+                  <Button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    disabled={sending}
+                  >
+                    <Calendar className="mr-3 h-5 w-5" />
+                    {sending ? "Envoi en cours..." : "Recevoir mon devis gratuit"}
+                  </Button>
+                  {success && <p className="text-center text-green-700 font-semibold mt-4">Merci ! Votre demande a été envoyée avec succès. Nous vous contacterons bientôt.</p>}
+                  {error && <p className="text-center text-red-600 mt-4">{error}</p>}
+                  <p className="text-center text-sm text-gray-500 mt-4">🔒 Vos informations sont sécurisées et confidentielles.</p>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </main>
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 md:py-16 relative overflow-hidden px-4">
+      <footer className="bg-gray-900 text-white py-8 md:py-16 relative overflow-hidden px-4 z-10">
         <div className="container mx-auto px-0 md:px-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
             <div className="lg:col-span-2">
@@ -256,25 +384,28 @@ export default function ClimatisationPage() {
                 </div>
               </div>
               <p className="text-gray-300 leading-relaxed mb-6 max-w-md text-sm">
-                Leader dans la technologie de refroidissement durable. Nous créons des solutions climatiques qui protègent à la fois votre confort et notre planète.
+                Leader dans la technologie de refroidissement durable. Nous créons des solutions climatiques qui
+                protègent à la fois votre confort et notre planète.
               </p>
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-6 text-green-400">Services</h4>
               <ul className="space-y-3 text-gray-300 text-sm">
-                {["AC Installation", "System Maintenance", "Smart Thermostats", "Energy Consulting", "Emergency Repair"].map((service) => (
-                  <li key={service}>
-                    <a href="#" className="hover:text-green-400 transition-colors duration-200">
-                      {service}
-                    </a>
-                  </li>
-                ))}
+                {["AC Installation", "System Maintenance", "Smart Thermostats", "Energy Consulting", "Emergency Repair"].map(
+                  service => (
+                    <li key={service}>
+                      <a href="#" className="hover:text-green-400 transition-colors duration-200">
+                        {service}
+                      </a>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-6 text-green-400">Entreprise</h4>
               <ul className="space-y-3 text-gray-300 text-sm">
-                {["About Us", "Our Mission", "Careers", "Press", "Blog"].map((item) => (
+                {["About Us", "Our Mission", "Careers", "Press", "Blog"].map(item => (
                   <li key={item}>
                     <a href="#" className="hover:text-green-400 transition-colors duration-200">
                       {item}
@@ -287,7 +418,7 @@ export default function ClimatisationPage() {
               <h4 className="text-lg font-semibold mb-6 text-green-400">Ressources</h4>
               <ul className="space-y-3 text-gray-300 text-sm">
                 {["Energy Calculator", "Maintenance Tips", "Warranty Info", "Support Center", "Contact Us"].map(
-                  (resource) => (
+                  resource => (
                     <li key={resource}>
                       <a href="#" className="hover:text-green-400 transition-colors duration-200">
                         {resource}
@@ -300,7 +431,9 @@ export default function ClimatisationPage() {
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-gray-400 text-center md:text-left text-xs md:text-sm">© 2025 EcoClimatic. Tous droits réservés. | Politique de Confidentialité | Conditions de Service</p>
+              <p className="text-gray-400 text-center md:text-left text-xs md:text-sm">
+                © 2025 EcoClimatic. Tous droits réservés. | Politique de Confidentialité | Conditions de Service
+              </p>
               <div className="flex items-center space-x-4 text-xs md:text-sm text-gray-400">
                 <span className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
