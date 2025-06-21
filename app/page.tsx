@@ -28,6 +28,7 @@ import {
   ImageIcon,
   ChevronDown,
   Menu,
+  ShieldAlert,
 } from "lucide-react"
 import { useState, useEffect } from "react"
 import { PortfolioGallery } from "@/components/portfolio-gallery"
@@ -100,11 +101,11 @@ const translations = {
       feature3: "24/7 Support",
     },
     service3: {
-      title: "Smart Controls",
-      description: "Advanced climate control systems with AI-powered optimization and remote monitoring.",
-      feature1: "AI Optimization",
-      feature2: "Remote Control",
-      feature3: "Energy Analytics",
+      title: "Troubleshooting and Repair",
+      description: "Fast and effective response to resolve all your air conditioning and heating problems.",
+      feature1: "Accurate Diagnosis",
+      feature2: "All Brands Repair",
+      feature3: "Emergency Service",
     },
     service4: {
       title: "Green Solutions",
@@ -296,11 +297,11 @@ const translations = {
       feature3: "Support 24/7",
     },
     service3: {
-      title: "Smart Controls",
-      description: "Advanced climate control systems with AI-powered optimization and remote monitoring.",
-      feature1: "AI Optimization",
-      feature2: "Remote Control",
-      feature3: "Energy Analytics",
+      title: "Dépannage et Réparation",
+      description: "Intervention rapide et efficace pour résoudre tous vos problèmes de climatisation et de chauffage.",
+      feature1: "Diagnostic Précis",
+      feature2: "Réparation Toutes Marques",
+      feature3: "Service d'Urgence",
     },
     service4: {
       title: "Green Solutions",
@@ -853,7 +854,7 @@ export default function EcoClimaticWebsite() {
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">{t("services.description")}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:max-w-7xl mx-auto">
             {[
               {
                 icon: <Snowflake className="h-10 w-10" />,
@@ -861,6 +862,7 @@ export default function EcoClimaticWebsite() {
                 description: t("service1.description"),
                 color: "blue",
                 features: [t("service1.feature1"), t("service1.feature2"), t("service1.feature3")],
+                href: "/climatisation",
               },
               {
                 icon: <Wrench className="h-10 w-10" />,
@@ -868,6 +870,15 @@ export default function EcoClimaticWebsite() {
                 description: t("service2.description"),
                 color: "green",
                 features: [t("service2.feature1"), t("service2.feature2"), t("service2.feature3")],
+                href: "/maintenance",
+              },
+              {
+                icon: <ShieldAlert className="h-10 w-10" />,
+                title: "Dépannage",
+                description: "Intervention rapide et efficace pour résoudre tous vos problèmes.",
+                color: "amber",
+                features: ["Diagnostic Précis", "Réparation Toutes Marques", "Service d'Urgence"],
+                href: "/maintenance",
               },
             ].map((service, idx) => (
               <Card
@@ -897,12 +908,7 @@ export default function EcoClimaticWebsite() {
                   <Button
                     variant="link"
                     className="text-green-600 font-bold text-lg mt-4 flex items-center gap-2 hover:underline"
-                    onClick={() => {
-                      if (service.title.includes('Maintenance')) router.push('/maintenance');
-                      else if (service.title.includes('Contrôles')) router.push('/controles');
-                      else if (service.title.includes('Solutions Vertes')) router.push('/solutions-vertes');
-                      else router.push('/climatisation');
-                    }}
+                    onClick={() => router.push(service.href)}
                   >
                     {t("services.learnMore")} <ArrowRight className="h-4 w-4" />
                   </Button>
