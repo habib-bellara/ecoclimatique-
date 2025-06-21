@@ -451,7 +451,7 @@ export default function EcoClimaticWebsite() {
               />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">EcoClimatic</h1>
+              <div className="text-xl font-bold text-gray-900">EcoClimatic</div>
               <p className="text-xs text-gray-600">Sustainable Cooling Solutions</p>
             </div>
           </div>
@@ -611,9 +611,10 @@ export default function EcoClimaticWebsite() {
                 <ArrowRight className="ml-3 h-5 w-5" />
               </Button>
               <Button
+                size="lg"
                 variant="outline"
                 className="border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg transition-all duration-300 flex items-center"
-                onClick={() => window.location.href = '/solutions'}
+                onClick={() => (window.location.href = "/solutions")}
               >
                 <Wind className="mr-3 h-5 w-5" />
                 {t("hero.cta2")}
@@ -1154,15 +1155,15 @@ export default function EcoClimaticWebsite() {
               <h4 className="text-lg font-semibold mb-6 text-green-400">{t("footer.services")}</h4>
               <ul className="space-y-3 text-gray-300">
                 {[
-                  "AC Installation",
-                  "System Maintenance",
-                  "Smart Thermostats",
-                  "Energy Consulting",
-                  "Emergency Repair",
-                ].map((service) => (
-                  <li key={service}>
-                    <a href="#" className="hover:text-green-400 transition-colors duration-200">
-                      {service}
+                  { name: "AC Installation", href: "/climatisation" },
+                  { name: "System Maintenance", href: "/maintenance" },
+                  { name: "Smart Thermostats", href: "/solutions" },
+                  { name: "Energy Consulting", href: "/solutions" },
+                  { name: "Emergency Repair", href: "/contact" },
+                ].map(service => (
+                  <li key={service.name}>
+                    <a href={service.href} className="hover:text-green-400 transition-colors duration-200">
+                      {service.name}
                     </a>
                   </li>
                 ))}
@@ -1172,10 +1173,16 @@ export default function EcoClimaticWebsite() {
             <div>
               <h4 className="text-lg font-semibold mb-6 text-green-400">{t("footer.company")}</h4>
               <ul className="space-y-3 text-gray-300">
-                {["About Us", "Our Mission", "Careers", "Press", "Blog"].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="hover:text-green-400 transition-colors duration-200">
-                      {item}
+                {[
+                  { name: "About Us", href: "/solutions" },
+                  { name: "Our Mission", href: "/solutions" },
+                  { name: "Careers", href: "/contact" },
+                  { name: "Press", href: "/contact" },
+                  { name: "Blog", href: "/solutions" },
+                ].map(item => (
+                  <li key={item.name}>
+                    <a href={item.href} className="hover:text-green-400 transition-colors duration-200">
+                      {item.name}
                     </a>
                   </li>
                 ))}
@@ -1185,15 +1192,19 @@ export default function EcoClimaticWebsite() {
             <div>
               <h4 className="text-lg font-semibold mb-6 text-green-400">{t("footer.resources")}</h4>
               <ul className="space-y-3 text-gray-300">
-                {["Energy Calculator", "Maintenance Tips", "Warranty Info", "Support Center", "Contact Us"].map(
-                  (resource) => (
-                    <li key={resource}>
-                      <a href="#" className="hover:text-green-400 transition-colors duration-200">
-                        {resource}
-                      </a>
-                    </li>
-                  ),
-                )}
+                {[
+                  { name: "Energy Calculator", href: "/solutions" },
+                  { name: "Maintenance Tips", href: "/maintenance" },
+                  { name: "Warranty Info", href: "/contact" },
+                  { name: "Support Center", href: "/contact" },
+                  { name: "Contact Us", href: "/contact" },
+                ].map(resource => (
+                  <li key={resource.name}>
+                    <a href={resource.href} className="hover:text-green-400 transition-colors duration-200">
+                      {resource.name}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
