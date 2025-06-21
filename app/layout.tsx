@@ -8,9 +8,9 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ecoclimatique.netlify.app"),
-  title: "Ecoclimatic - Climatisation & Pompe à Chaleur Écologique",
+  title: "Ecoclimatic - Climatisation Écologique, Installation & Maintenance",
   description:
-    "Votre expert en climatisation écologique et pompe à chaleur. Installation, maintenance et solutions durables pour un confort optimal et des économies d'énergie.",
+    "Ecoclimatic est votre spécialiste en climatisation écologique, pompes à chaleur, et solutions de chauffage durable. Services d'installation, maintenance et dépannage.",
   viewport: "width=device-width, initial-scale=1",
   generator: "v0.dev",
   keywords: [
