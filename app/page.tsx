@@ -216,9 +216,9 @@ const translations = {
     about: {
       badge: "À Propos d'EcoClimatic",
       title: "Pionnier de l'Avenir",
-      titleHighlight: "de la Climatisation Durable",
+      titleHighlight: "de la Climatisation Écologique et Durable",
       description:
-        "Depuis plus de 15 ans, EcoClimatic est à l'avant-garde de l'innovation HVAC durable. Nous n'installons pas seulement des systèmes de climatisation – nous créons des solutions climatiques complètes qui harmonisent confort, efficacité et responsabilité environnementale.",
+        "Depuis plus de 15 ans, EcoClimatic est le spécialiste de la climatisation écologique en France. Nous ne faisons pas qu'installer des systèmes : nous concevons des solutions globales de climatisation respectueuses de l'environnement, alliant confort, économies d'énergie et innovation. Faites confiance à EcoClimatic pour un air sain, une planète préservée et des performances énergétiques optimales, aussi bien pour les particuliers que pour les professionnels.",
       installations: "Installations Écologiques",
       installationsSubtext: "Résidentiel et commercial",
       energySavings: "Économies d'Énergie",
@@ -647,9 +647,9 @@ export default function EcoClimaticWebsite() {
 
                 {/* Title */}
                 <h2 className="text-5xl md:text-6xl font-black text-gray-900 leading-tight mb-6">
-                  {t("about.title")}
+                  Pionnier de l'Avenir
                   <br />
-                  <span className="text-green-600">{t("about.titleHighlight")}</span>
+                  <span className="text-green-600">de la Climatisation Écologique et Durable</span>
                 </h2>
 
                 {/* Description */}
