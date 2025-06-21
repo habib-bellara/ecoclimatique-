@@ -560,24 +560,14 @@ export default function EcoClimaticWebsite() {
                     letterSpacing: "-0.02em",
                   }}
                 >
-                  {t("hero.title1")}
-                </span>
-                <span
-                  className="block text-blue-600"
-                  style={{
-                    fontSize: "clamp(3rem, 8vw, 8rem)",
-                    fontWeight: "900",
-                    letterSpacing: "-0.02em",
-                  }}
-                >
-                  {t("hero.title2")}
+                  climatisation écologique
                 </span>
               </h1>
             </div>
 
             {/* Description */}
             <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12 font-light">
-              {t("hero.subtitle")}
+              Bienvenue sur ecoclimatique, le site dédié à la climatisation respectueuse de l'environnement. Découvrez nos solutions écoclimatiques innovantes pour un confort durable et une planète préservée.
             </p>
 
             {/* CTA Buttons */}
