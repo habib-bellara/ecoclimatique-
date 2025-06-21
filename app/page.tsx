@@ -67,7 +67,7 @@ const translations = {
       title: "Pioneering the Future",
       titleHighlight: "of Sustainable Cooling",
       description:
-        "For over 15 years, EcoClimatic has been at the forefront of sustainable HVAC innovation. We don't just install air conditioning systems – we create comprehensive climate solutions that harmonize comfort, efficiency, and environmental stewardship.",
+        "For over 20 years, EcoClimatic has been at the forefront of sustainable HVAC innovation. We don't just install air conditioning systems – we create comprehensive climate solutions that harmonize comfort, efficiency, and environmental stewardship.",
       installations: "Eco Installations",
       installationsSubtext: "Across residential & commercial",
       energySavings: "Energy Savings",
@@ -220,7 +220,7 @@ const translations = {
       title: "Pionnier de l'Avenir",
       titleHighlight: "de la Climatisation Écologique et Durable",
       description:
-        "Depuis plus de 15 ans, EcoClimatic est le spécialiste de la climatisation écologique en France. Nous ne faisons pas qu'installer des systèmes : nous concevons des solutions globales de climatisation respectueuses de l'environnement, alliant confort, économies d'énergie et innovation. Faites confiance à EcoClimatic pour un air sain, une planète préservée et des performances énergétiques optimales, aussi bien pour les particuliers que pour les professionnels.",
+        "Depuis 20 ans, EcoClimatic est le spécialiste de la climatisation écologique en France. Nous ne faisons pas qu'installer des systèmes : nous concevons des solutions globales de climatisation respectueuses de l'environnement, alliant confort, économies d'énergie et innovation. Faites confiance à EcoClimatic pour un air sain, une planète préservée et des performances énergétiques optimales, aussi bien pour les particuliers que pour les professionnels.",
       installations: "Installations Écologiques",
       installationsSubtext: "Résidentiel et commercial",
       energySavings: "Économies d'Énergie",
@@ -1047,14 +1047,14 @@ export default function EcoClimaticWebsite() {
                   </div>
                 </a>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=France,Paris"
+                  href="https://www.google.com/maps/search/?api=1&query=42+RUE+DU+LANDY+CLICHY+LA+GARENNE"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                     <MapPin className="h-6 w-6 text-teal-200" />
                     <div>
-                      <div className="text-lg font-semibold">France, Paris</div>
+                      <div className="text-lg font-semibold">42 RUE DU LANDY CLICHY LA GARENNE</div>
                       <div className="text-sm text-teal-100">{t("contact.address.title")}</div>
                     </div>
                   </div>
