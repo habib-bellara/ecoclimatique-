@@ -171,7 +171,7 @@ export function PortfolioGallery() {
             className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 bg-white"
             onClick={() => handleOpenImage(item)}
           >
-            <div className="relative h-64 overflow-hidden">
+            <div className="relative aspect-video overflow-hidden">
               <img
                 src={item.image || "/placeholder.svg"}
                 alt={t(item.titleKey)}

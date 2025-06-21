@@ -142,6 +142,14 @@ export default function SolutionsPage() {
                           {link.name}
                         </button>
                       ))}
+                      <Button
+                        variant="outline"
+                        className="w-full"
+                        onClick={() => window.open("tel:+33784789910", "_self")}
+                      >
+                        <Phone className="h-4 w-4 mr-2" />
+                        Appeler
+                      </Button>
                     </nav>
                   </div>
                 </SheetContent>
