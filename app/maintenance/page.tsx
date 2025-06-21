@@ -53,6 +53,8 @@ export default function MaintenancePage() {
     { name: "Accueil", href: "/" },
     { name: "Climatisation", href: "/climatisation" },
     { name: "Maintenance", href: "/maintenance" },
+    { name: "Dépannage", href: "/depannage" },
+    { name: "Solutions", href: "/solutions" },
   ]
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -171,7 +173,7 @@ export default function MaintenancePage() {
               className="hidden md:flex text-gray-600 hover:text-green-600 hover:bg-green-50"
             >
               <Phone className="h-4 w-4 mr-2" />
-              +33 7 84 78 99 10
+              06 50 66 86 00
             </Button>
             <div className="lg:hidden">
               <Sheet>

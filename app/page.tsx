@@ -298,10 +298,10 @@ const translations = {
     },
     service3: {
       title: "Dépannage et Réparation",
-      description: "Intervention rapide et efficace pour résoudre tous vos problèmes de climatisation et de chauffage.",
-      feature1: "Diagnostic Précis",
-      feature2: "Réparation Toutes Marques",
-      feature3: "Service d'Urgence",
+      description: "Fast and effective response to resolve all your air conditioning and heating problems.",
+      feature1: "Accurate Diagnosis",
+      feature2: "All Brands Repair",
+      feature3: "Emergency Service",
     },
     service4: {
       title: "Green Solutions",
@@ -552,7 +552,7 @@ export default function EcoClimaticWebsite() {
             ].map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => scrollToSection(item.id!)}
                 className={`text-gray-700 hover:text-green-600 transition-all duration-300 font-medium relative group py-2 ${
                   activeSection === item.id ? "text-green-600" : ""
                 }`}
@@ -627,7 +627,7 @@ export default function EcoClimaticWebsite() {
                     ].map(item => (
                       <button
                         key={item.id}
-                        onClick={() => scrollToSection(item.id)}
+                        onClick={() => scrollToSection(item.id!)}
                         className="text-lg text-left font-medium text-gray-700 hover:text-green-600"
                       >
                         {item.name}
@@ -878,7 +878,7 @@ export default function EcoClimaticWebsite() {
                 description: "Intervention rapide et efficace pour résoudre tous vos problèmes.",
                 color: "amber",
                 features: ["Diagnostic Précis", "Réparation Toutes Marques", "Service d'Urgence"],
-                href: "/maintenance",
+                href: "/depannage",
               },
             ].map((service, idx) => (
               <Card

@@ -23,6 +23,7 @@ export default function SolutionsPage() {
     { name: "Accueil", href: "/" },
     { name: "Climatisation", href: "/climatisation" },
     { name: "Maintenance", href: "/maintenance" },
+    { name: "Dépannage", href: "/depannage" },
     { name: "Solutions", href: "/solutions" },
   ]
 
@@ -114,13 +115,14 @@ export default function SolutionsPage() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <div className="hidden lg:flex items-center space-x-2 text-sm">
-              <Phone className="h-4 w-4" />
-              <span>Une question? Appelez-nous</span>
-              <a href="tel:0650668600" className="font-semibold text-green-600 hover:underline">
-                06 50 66 86 00
-              </a>
-            </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="hidden md:flex text-gray-600 hover:text-green-600 hover:bg-green-50"
+            >
+              <Phone className="h-4 w-4 mr-2" />
+              06 50 66 86 00
+            </Button>
             <div className="lg:hidden">
               <Sheet>
                 <SheetTrigger asChild>
