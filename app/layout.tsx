@@ -7,10 +7,21 @@ import { LanguageProvider } from "@/contexts/language-context"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "ecoclimatique",
-  description: "Leader de la climatisation écologique en France. Installation, maintenance, solutions vertes et intelligentes.",
+  metadataBase: new URL("https://ecoclimatique.netlify.app"),
+  title: "Ecoclimatic - Climatisation Écologique, Installation & Maintenance",
+  description:
+    "Ecoclimatic est votre spécialiste en climatisation écologique, pompes à chaleur, et solutions de chauffage durable. Services d'installation, maintenance et dépannage.",
   viewport: "width=device-width, initial-scale=1",
-  generator: 'v0.dev'
+  generator: "v0.dev",
+  keywords: [
+    "climatisation écologique",
+    "pompe à chaleur",
+    "installation climatisation",
+    "maintenance climatisation",
+    "chauffage durable",
+    "Ecoclimatic",
+    "rénovation énergétique",
+  ],
 }
 
 export default function RootLayout({
@@ -18,9 +29,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ecoclimatic",
+    "url": "https://ecoclimatique.netlify.app",
+    "logo": "https://ecoclimatique.netlify.app/logo-ecoclimactic.jpg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+33-7-84-78-99-10",
+      "contactType": "customer service"
+    }
+  }
+
   return (
     <html lang="en">
       <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
