@@ -863,7 +863,7 @@ export default function EcoClimaticWebsite() {
                 description: t("service1.description"),
                 color: "blue",
                 features: [t("service1.feature1"), t("service1.feature2"), t("service1.feature3")],
-                href: "/climatisation",
+                href: "/installation",
               },
               {
                 icon: <Wrench className="h-10 w-10" />,

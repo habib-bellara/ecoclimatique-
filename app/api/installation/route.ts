@@ -54,7 +54,7 @@ export async function POST(req: Request) {
         </ul>
         <h2>Détails de l'installation :</h2>
         <ul>
-          <li><strong>Type d'installation souhaité :</strong> ${data.installationType.join(', ')}</li>
+          <li><strong>Type d'installation souhaité :</strong> ${data.installationType}</li>
           <li><strong>Système actuel :</strong> ${data.currentSystem}</li>
         </ul>
         <h2>Commentaires :</h2>

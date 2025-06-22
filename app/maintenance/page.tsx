@@ -51,7 +51,7 @@ export default function MaintenancePage() {
 
   const navLinks = [
     { name: "Accueil", href: "/" },
-    { name: "Climatisation", href: "/climatisation" },
+    { name: "Installation", href: "/installation" },
     { name: "Maintenance", href: "/maintenance" },
     { name: "Dépannage", href: "/depannage" },
     { name: "Solutions", href: "/solutions" },

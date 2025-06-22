@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   title: "Ecoclimatic - Climatisation Écologique, Installation & Maintenance",
   description:
     "Ecoclimatic est votre spécialiste en climatisation écologique, pompes à chaleur, et solutions de chauffage durable. Services d'installation, maintenance et dépannage.",
-  viewport: "width=device-width, initial-scale=1",
   generator: "v0.dev",
   keywords: [
     "climatisation écologique",
@@ -22,6 +21,11 @@ export const metadata: Metadata = {
     "Ecoclimatic",
     "rénovation énergétique",
   ],
+}
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 }
 
 export default function RootLayout({
