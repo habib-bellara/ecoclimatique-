@@ -32,6 +32,7 @@ import {
 } from "lucide-react"
 import { useState, useEffect } from "react"
 import { PortfolioGallery } from "@/components/portfolio-gallery"
+import { LogoCloud } from "@/components/ui/logo-cloud"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useRouter } from "next/navigation"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -1221,6 +1222,9 @@ export default function EcoClimaticWebsite() {
           </div>
         </div>
       </section>
+
+      {/* Logo Cloud */}
+      <LogoCloud />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-16 relative overflow-hidden">
