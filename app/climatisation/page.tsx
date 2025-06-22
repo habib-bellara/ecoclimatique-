@@ -301,7 +301,11 @@ export default function InstallationFormPage() {
                           }`}
                         onClick={() => handleCheckboxChange(type)}
                       >
-                        <Checkbox id={type} checked={formData.installationType.includes(type)} />
+                        <Checkbox
+                          id={type}
+                          value={type}
+                          checked={formData.installationType.includes(type)}
+                        />
                         <Label htmlFor={type} className="font-medium text-gray-800 cursor-pointer">{type}</Label>
                       </div>
                     ))}
