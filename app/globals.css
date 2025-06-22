@@ -101,14 +101,14 @@
 
   @keyframes scroll {
     0% {
-      transform: translateX(0);
+      transform: translateX(-50%);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(0);
     }
   }
 
   .animate-scroll {
-    animation: scroll 40s linear infinite;
+    animation: scroll 25s linear infinite;
   }
 }

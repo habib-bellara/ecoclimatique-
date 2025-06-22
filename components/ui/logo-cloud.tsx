@@ -26,7 +26,7 @@ export function LogoCloud() {
           <div className="overflow-hidden">
             <div className="flex animate-scroll group">
               {[...logos, ...logos].map((logo, index) => (
-                <div key={index} className="flex-shrink-0 mx-8 flex items-center justify-center" style={{ width: '160px' }}>
+                <div key={index} className="flex-shrink-0 mx-6 flex items-center justify-center" style={{ width: '160px' }}>
                   <Image
                     src={logo.src}
                     alt={logo.alt}
