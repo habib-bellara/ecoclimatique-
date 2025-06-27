@@ -30,9 +30,9 @@ export function LogoCloud() {
                   <Image
                     src={logo.src}
                     alt={logo.alt}
-                    width={150}
-                    height={60}
-                    className="object-contain h-12 w-auto transition-all duration-300 hover:scale-110"
+                    width={220}
+                    height={100}
+                    className="object-contain h-24 w-auto transition-all duration-300 hover:scale-110"
                   />
                 </div>
               ))}

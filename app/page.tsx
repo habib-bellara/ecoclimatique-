@@ -69,7 +69,7 @@ const translations = {
       title: "Pioneering the Future",
       titleHighlight: "of Sustainable Cooling",
       description:
-        "For over 20 years, EcoClimatic has been at the forefront of sustainable HVAC innovation. We don't just install air conditioning systems – we create comprehensive climate solutions that harmonize comfort, efficiency, and environmental stewardship.",
+        "Hereba Minte Expert en climatisation et froid industriel – Plus de 20 ans d'expérience. Hereba Minte possède plus de 20 ans d'expérience dans le domaine de la climatisation et du froid industriel. Spécialiste reconnu, il maîtrise parfaitement les systèmes à détente directe ainsi que les installations à eau glacée, tant en travaux neufs qu'en maintenance et dépannage. Depuis plus de 15 ans, Hereba Minte met ses compétences au service de Dalkia, où il intervient sur des installations complexes de groupes froids, assurant la qualité des travaux et la fiabilité des équipements, notamment sur les systèmes à détente directe et les réseaux d'eau glacée. Avant de rejoindre Dalkia, il a acquis une solide expérience de 5 ans chez Axima, où il a développé une expertise approfondie sur les installations à détente directe, en particulier sur des sites techniques et industriels. Rigoureux, réactif et passionné par son métier, Hereba Minte s'engage à garantir à ses clients des installations performantes, des interventions de qualité et des solutions adaptées aux besoins les plus exigeants.",
       installations: "Eco Installations",
       installationsSubtext: "Across residential & commercial",
       energySavings: "Energy Savings",
@@ -264,7 +264,7 @@ const translations = {
       title: "Pionnier de l'Avenir",
       titleHighlight: "de la Climatisation Écologique et Durable",
       description:
-        "Depuis 20 ans, EcoClimatic est le spécialiste de la climatisation écologique en France. Nous ne faisons pas qu'installer des systèmes : nous concevons des solutions globales de climatisation respectueuses de l'environnement, alliant confort, économies d'énergie et innovation. Faites confiance à EcoClimatic pour un air sain, une planète préservée et des performances énergétiques optimales, aussi bien pour les particuliers que pour les professionnels.",
+        "Hereba Minte Expert en climatisation et froid industriel – Plus de 20 ans d'expérience. Hereba Minte possède plus de 20 ans d'expérience dans le domaine de la climatisation et du froid industriel. Spécialiste reconnu, il maîtrise parfaitement les systèmes à détente directe ainsi que les installations à eau glacée, tant en travaux neufs qu'en maintenance et dépannage. Depuis plus de 15 ans, Hereba Minte met ses compétences au service de Dalkia, où il intervient sur des installations complexes de groupes froids, assurant la qualité des travaux et la fiabilité des équipements, notamment sur les systèmes à détente directe et les réseaux d'eau glacée. Avant de rejoindre Dalkia, il a acquis une solide expérience de 5 ans chez Axima, où il a développé une expertise approfondie sur les installations à détente directe, en particulier sur des sites techniques et industriels. Rigoureux, réactif et passionné par son métier, Hereba Minte s'engage à garantir à ses clients des installations performantes, des interventions de qualité et des solutions adaptées aux besoins les plus exigeants.",
       installations: "Installations Écologiques",
       installationsSubtext: "Résidentiel et commercial",
       energySavings: "Économies d'Énergie",
@@ -752,6 +752,7 @@ export default function EcoClimaticWebsite() {
       {/* About Section */}
       <section id="about" className="py-24 px-6 bg-gradient-to-br from-green-50 to-teal-50 relative overflow-hidden">
         <div className="container mx-auto relative z-10">
+          {/* Titre pleine largeur centré */}
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <div>
