@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Ajoute ici le lien vers ton sitemap si tu en as un, par exemple :
+# Sitemap: https://www.tonsite.com/sitemap.xml 
