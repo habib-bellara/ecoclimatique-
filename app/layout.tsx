@@ -7,7 +7,7 @@ import { LanguageProvider } from "@/contexts/language-context"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ecoclimatique.netlify.app"),
+  metadataBase: new URL("https://ecoclimatic.fr"),
   title: "Ecoclimatic - Climatisation Écologique, Installation & Maintenance",
   description:
     "Ecoclimatic est votre spécialiste en climatisation écologique, pompes à chaleur, et solutions de chauffage durable. Services d'installation, maintenance et dépannage.",
@@ -21,6 +21,40 @@ export const metadata: Metadata = {
     "Ecoclimatic",
     "rénovation énergétique",
   ],
+  openGraph: {
+    title: "Ecoclimatic - Climatisation Écologique, Installation & Maintenance",
+    description: "Ecoclimatic est votre spécialiste en climatisation écologique, pompes à chaleur, et solutions de chauffage durable.",
+    url: "https://ecoclimatic.fr",
+    siteName: "Ecoclimatic",
+    images: [
+      {
+        url: "https://ecoclimatic.fr/logo-ecoclimactic.jpg",
+        width: 800,
+        height: 600,
+        alt: "Logo Ecoclimatic"
+      }
+    ],
+    locale: "fr_FR",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@ecoclimatic",
+    title: "Ecoclimatic - Climatisation Écologique, Installation & Maintenance",
+    description: "Ecoclimatic est votre spécialiste en climatisation écologique, pompes à chaleur, et solutions de chauffage durable.",
+    images: ["https://ecoclimatic.fr/logo-ecoclimactic.jpg"]
+  },
+  alternates: {
+    canonical: "https://ecoclimatic.fr/"
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicodn.ico/apple-touch-icon.png",
+    other: [
+      { rel: "icon", url: "/favicon.png" }
+    ]
+  }
 }
 
 export const viewport = {
@@ -35,22 +69,19 @@ export default function RootLayout({
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "LocalBusiness"],
     "name": "Ecoclimatic",
-    "url": "https://ecoclimatique.netlify.app",
-    "logo": "https://ecoclimatique.netlify.app/logo-ecoclimactic.jpg",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "06-50-66-86-00",
-      "contactType": "customer service"
-    },
+    "url": "https://ecoclimatic.fr",
+    "logo": "https://ecoclimatic.fr/logo-ecoclimactic.jpg",
+    "telephone": "06-50-66-86-00",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "42 RUE DU LANDY",
       "addressLocality": "CLICHY LA GARENNE",
       "postalCode": "92110",
       "addressCountry": "FR"
-    }
+    },
+    "description": "Spécialiste en climatisation écologique, installation, maintenance et dépannage."
   }
 
   return (

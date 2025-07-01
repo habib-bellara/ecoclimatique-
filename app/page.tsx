@@ -36,6 +36,7 @@ import { LogoCloud } from "@/components/ui/logo-cloud"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useRouter } from "next/navigation"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import Image from "next/image"
 
 // Translations object
 const translations = {
@@ -530,9 +531,11 @@ export default function EcoClimaticWebsite() {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => scrollToSection("home")}>
             <div className="relative">
-              <img
+              <Image
                 src="/logo-ecoclimactic.jpg"
                 alt="EcoClimatic Logo"
+                width={48}
+                height={48}
                 className="h-12 w-12 rounded-full object-cover shadow-md ring-1 ring-green-200 group-hover:ring-green-400 transition-all duration-300"
               />
             </div>
@@ -1241,9 +1244,11 @@ export default function EcoClimaticWebsite() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-4 mb-6">
-                <img
+                <Image
                   src="/logo-ecoclimactic.jpg"
                   alt="Logo EcoClimatic"
+                  width={48}
+                  height={48}
                   className="h-12 w-12 rounded-full object-cover ring-2 ring-green-400"
                 />
                 <div>
