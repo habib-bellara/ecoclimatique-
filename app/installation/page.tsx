@@ -156,29 +156,37 @@ export default function InstallationPage() {
               06 50 66 86 00
             </Button>
             <div className="lg:hidden">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                    <Menu className="h-6 w-6" />
-                    <span className="sr-only">Ouvrir le menu</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent>
-                  <div className="pt-8">
-                    <nav className="flex flex-col space-y-4">
-                      {navLinks.map(link => (
-                        <button
-                          key={link.name}
-                          className="text-lg text-left font-medium text-gray-700 hover:text-green-600 transition-colors duration-200"
-                          onClick={() => router.push(link.href)}
-                        >
-                          {link.name}
-                        </button>
-                      ))}
-                    </nav>
-                  </div>
-                </SheetContent>
-              </Sheet>
+              {(() => {
+                const [open, setOpen] = useState(false);
+                return (
+                  <Sheet open={open} onOpenChange={setOpen}>
+                    <SheetTrigger asChild>
+                      <Button variant="ghost" size="icon">
+                        <Menu className="h-6 w-6" />
+                        <span className="sr-only">Ouvrir le menu</span>
+                      </Button>
+                    </SheetTrigger>
+                    <SheetContent>
+                      <div className="pt-8">
+                        <nav className="flex flex-col space-y-4">
+                          {navLinks.map(link => (
+                            <button
+                              key={link.name}
+                              className="text-lg text-left font-medium text-gray-700 hover:text-green-600 transition-colors duration-200"
+                              onClick={() => {
+                                router.push(link.href);
+                                setOpen(false);
+                              }}
+                            >
+                              {link.name}
+                            </button>
+                          ))}
+                        </nav>
+                      </div>
+                    </SheetContent>
+                  </Sheet>
+                );
+              })()}
             </div>
           </div>
         </div>

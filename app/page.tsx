@@ -610,33 +610,41 @@ export default function EcoClimaticWebsite() {
               06 50 66 86 00
             </Button>
             <div className="lg:hidden">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                    <Menu className="h-6 w-6" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent>
-                  <nav className="flex flex-col space-y-4 pt-8">
-                    {[
-                      { name: t("nav.home"), id: "home" },
-                      { name: t("nav.about"), id: "about" },
-                      { name: t("nav.services"), id: "services" },
-                      { name: t("nav.ourWork"), id: "portfolio" },
-                      { name: t("nav.benefits"), id: "benefits" },
-                      { name: t("nav.contact"), id: "contact" },
-                    ].map(item => (
-                      <button
-                        key={item.id}
-                        onClick={() => scrollToSection(item.id!)}
-                        className="text-lg text-left font-medium text-gray-700 hover:text-green-600"
-                      >
-                        {item.name}
-                      </button>
-                    ))}
-                  </nav>
-                </SheetContent>
-              </Sheet>
+              {(() => {
+                const [open, setOpen] = useState(false);
+                return (
+                  <Sheet open={open} onOpenChange={setOpen}>
+                    <SheetTrigger asChild>
+                      <Button variant="ghost" size="icon">
+                        <Menu className="h-6 w-6" />
+                      </Button>
+                    </SheetTrigger>
+                    <SheetContent>
+                      <nav className="flex flex-col space-y-4 pt-8">
+                        {[
+                          { name: t("nav.home"), id: "home" },
+                          { name: t("nav.about"), id: "about" },
+                          { name: t("nav.services"), id: "services" },
+                          { name: t("nav.ourWork"), id: "portfolio" },
+                          { name: t("nav.benefits"), id: "benefits" },
+                          { name: t("nav.contact"), id: "contact" },
+                        ].map(item => (
+                          <button
+                            key={item.id}
+                            onClick={() => {
+                              scrollToSection(item.id!);
+                              setOpen(false);
+                            }}
+                            className="text-lg text-left font-medium text-gray-700 hover:text-green-600"
+                          >
+                            {item.name}
+                          </button>
+                        ))}
+                      </nav>
+                    </SheetContent>
+                  </Sheet>
+                );
+              })()}
             </div>
           </div>
         </div>
