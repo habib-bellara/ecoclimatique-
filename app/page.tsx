@@ -782,6 +782,14 @@ export default function EcoClimaticWebsite() {
 
                 {/* Description */}
                 <p className="text-xl text-gray-600 leading-relaxed mb-8 font-light">{t("about.description")}</p>
+                <div className="flex flex-wrap gap-4 mb-8">
+                  <a href="/installation" className="text-green-600 underline hover:text-green-800">En savoir plus sur l'installation de climatisation</a>
+                  <a href="/maintenance" className="text-green-600 underline hover:text-green-800">Découvrez notre maintenance écologique</a>
+                  <a href="/depannage" className="text-green-600 underline hover:text-green-800">Service de dépannage rapide</a>
+                  <a href="/solutions" className="text-green-600 underline hover:text-green-800">Nos solutions durables</a>
+                  <a href="#portfolio" className="text-green-600 underline hover:text-green-800">Voir nos réalisations</a>
+                  <a href="#contact" className="text-green-600 underline hover:text-green-800">Contactez-nous</a>
+                </div>
               </div>
 
               {/* Stats Cards */}
@@ -865,6 +873,12 @@ export default function EcoClimaticWebsite() {
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">{t("services.description")}</p>
+            <div className="flex flex-wrap gap-4 justify-center mt-4">
+              <a href="/installation" className="text-green-600 underline hover:text-green-800">Installation de climatisation</a>
+              <a href="/maintenance" className="text-green-600 underline hover:text-green-800">Maintenance</a>
+              <a href="/depannage" className="text-green-600 underline hover:text-green-800">Dépannage</a>
+              <a href="/solutions" className="text-green-600 underline hover:text-green-800">Solutions durables</a>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:max-w-7xl mx-auto">
@@ -1261,6 +1275,11 @@ export default function EcoClimaticWebsite() {
               <p className="text-gray-300 leading-relaxed mb-6 max-w-md text-sm">
                 Leader dans la technologie de refroidissement durable. Nous créons des solutions climatiques qui
                 protègent à la fois votre confort et notre planète.
+                <br />
+                <a href="/installation" className="text-green-400 underline hover:text-green-200">Installation</a> |
+                <a href="/maintenance" className="text-green-400 underline hover:text-green-200">Maintenance</a> |
+                <a href="/depannage" className="text-green-400 underline hover:text-green-200">Dépannage</a> |
+                <a href="/solutions" className="text-green-400 underline hover:text-green-200">Solutions</a>
               </p>
             </div>
             <div>
