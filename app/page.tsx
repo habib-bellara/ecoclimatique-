@@ -783,12 +783,12 @@ export default function EcoClimaticWebsite() {
                 {/* Description */}
                 <p className="text-xl text-gray-600 leading-relaxed mb-8 font-light">{t("about.description")}</p>
                 <div className="flex flex-wrap gap-4 mb-8">
-                  <a href="/installation" className="text-green-600 underline hover:text-green-800">En savoir plus sur l'installation de climatisation</a>
-                  <a href="/maintenance" className="text-green-600 underline hover:text-green-800">Découvrez notre maintenance écologique</a>
-                  <a href="/depannage" className="text-green-600 underline hover:text-green-800">Service de dépannage rapide</a>
-                  <a href="/solutions" className="text-green-600 underline hover:text-green-800">Nos solutions durables</a>
-                  <a href="#portfolio" className="text-green-600 underline hover:text-green-800">Voir nos réalisations</a>
-                  <a href="#contact" className="text-green-600 underline hover:text-green-800">Contactez-nous</a>
+                  <a href="/installation" className="px-4 py-2 rounded-full bg-green-50 text-green-700 font-semibold shadow-sm hover:bg-green-100 hover:text-green-900 transition-all duration-200 border border-green-200">Installation de climatisation</a>
+                  <a href="/maintenance" className="px-4 py-2 rounded-full bg-green-50 text-green-700 font-semibold shadow-sm hover:bg-green-100 hover:text-green-900 transition-all duration-200 border border-green-200">Maintenance écologique</a>
+                  <a href="/depannage" className="px-4 py-2 rounded-full bg-green-50 text-green-700 font-semibold shadow-sm hover:bg-green-100 hover:text-green-900 transition-all duration-200 border border-green-200">Dépannage rapide</a>
+                  <a href="/solutions" className="px-4 py-2 rounded-full bg-green-50 text-green-700 font-semibold shadow-sm hover:bg-green-100 hover:text-green-900 transition-all duration-200 border border-green-200">Solutions durables</a>
+                  <a href="#portfolio" className="px-4 py-2 rounded-full bg-green-50 text-green-700 font-semibold shadow-sm hover:bg-green-100 hover:text-green-900 transition-all duration-200 border border-green-200">Nos réalisations</a>
+                  <a href="#contact" className="px-4 py-2 rounded-full bg-green-50 text-green-700 font-semibold shadow-sm hover:bg-green-100 hover:text-green-900 transition-all duration-200 border border-green-200">Contactez-nous</a>
                 </div>
               </div>
 
@@ -874,10 +874,10 @@ export default function EcoClimaticWebsite() {
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">{t("services.description")}</p>
             <div className="flex flex-wrap gap-4 justify-center mt-4">
-              <a href="/installation" className="text-green-600 underline hover:text-green-800">Installation de climatisation</a>
-              <a href="/maintenance" className="text-green-600 underline hover:text-green-800">Maintenance</a>
-              <a href="/depannage" className="text-green-600 underline hover:text-green-800">Dépannage</a>
-              <a href="/solutions" className="text-green-600 underline hover:text-green-800">Solutions durables</a>
+              <a href="/installation" className="px-4 py-2 rounded-full bg-green-50 text-green-700 font-semibold shadow-sm hover:bg-green-100 hover:text-green-900 transition-all duration-200 border border-green-200">Installation de climatisation</a>
+              <a href="/maintenance" className="px-4 py-2 rounded-full bg-green-50 text-green-700 font-semibold shadow-sm hover:bg-green-100 hover:text-green-900 transition-all duration-200 border border-green-200">Maintenance</a>
+              <a href="/depannage" className="px-4 py-2 rounded-full bg-green-50 text-green-700 font-semibold shadow-sm hover:bg-green-100 hover:text-green-900 transition-all duration-200 border border-green-200">Dépannage</a>
+              <a href="/solutions" className="px-4 py-2 rounded-full bg-green-50 text-green-700 font-semibold shadow-sm hover:bg-green-100 hover:text-green-900 transition-all duration-200 border border-green-200">Solutions durables</a>
             </div>
           </div>
 
