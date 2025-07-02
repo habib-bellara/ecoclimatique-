@@ -3,14 +3,15 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { LanguageProvider } from "@/contexts/language-context"
+import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ecoclimatic.fr"),
-  title: "Ecoclimatic - Climatisation Écologique, Installation & Dépannage",
+  title: "Ecoclimatic - Climatisation Écologique & Dépannage Rapide",
   description:
-    "Climatisation écologique, installation, maintenance et dépannage. Solutions durables pour un confort optimal et une planète préservée.",
+    "Climatisation écologique, installation, maintenance et dépannage. Solutions durables pour un confort optimal, économies d'énergie et planète préservée.",
   generator: "v0.dev",
   keywords: [
     "climatisation écologique",
@@ -23,8 +24,8 @@ export const metadata: Metadata = {
     "rénovation énergétique",
   ],
   openGraph: {
-    title: "Ecoclimatic - Climatisation Écologique, Installation & Dépannage",
-    description: "Climatisation écologique, installation, maintenance et dépannage. Solutions durables pour un confort optimal et une planète préservée.",
+    title: "Ecoclimatic - Climatisation Écologique & Dépannage Rapide",
+    description: "Climatisation écologique, installation, maintenance et dépannage. Solutions durables pour un confort optimal, économies d'énergie et planète préservée.",
     url: "https://ecoclimatic.fr",
     siteName: "Ecoclimatic",
     images: [
@@ -41,8 +42,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@ecoclimatic",
-    title: "Ecoclimatic - Climatisation Écologique, Installation & Dépannage",
-    description: "Climatisation écologique, installation, maintenance et dépannage. Solutions durables pour un confort optimal et une planète préservée.",
+    title: "Ecoclimatic - Climatisation Écologique & Dépannage Rapide",
+    description: "Climatisation écologique, installation, maintenance et dépannage. Solutions durables pour un confort optimal, économies d'énergie et planète préservée.",
     images: ["https://ecoclimatic.fr/logo-ecoclimactic.jpg"]
   },
   alternates: {
@@ -92,17 +93,15 @@ export default function RootLayout({
         <noscript>
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWPWTJNR" height="0" width="0" style={{display:"none",visibility:"hidden"}}></iframe>
         </noscript>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id=GTM-KWPWTJNR'+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-KWPWTJNR');
-            `,
-          }}
-        />
+        <Script id="gtm-script" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id=GTM-KWPWTJNR'+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KWPWTJNR');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
