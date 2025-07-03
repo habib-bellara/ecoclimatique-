@@ -74,7 +74,7 @@ export default function RootLayout({
     "@type": ["Organization", "LocalBusiness"],
     "name": "Ecoclimatic",
     "url": "https://ecoclimatic.fr",
-    "logo": "https://ecoclimatic.fr/logo-ecoclimactic.jpg",
+    "logo": "https://ecoclimatic.fr/logos/logo.png",
     "telephone": "06-50-66-86-00",
     "address": {
       "@type": "PostalAddress",
@@ -88,6 +88,9 @@ export default function RootLayout({
 
   return (
     <html lang="fr">
+      <head>
+        <link rel="icon" href="/logos/logo.png" type="image/png" />
+      </head>
       <body className={inter.className}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
