@@ -6,4 +6,4 @@ Allow: /
 Host: https://ecoclimatic.fr
 
 # Sitemaps
-Sitemap: https://ecoclimatic.fr/api/sitemap
+Sitemap: https://ecoclimatic.fr/sitemap.xml
