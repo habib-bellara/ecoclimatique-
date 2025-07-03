@@ -70,7 +70,7 @@ const translations = {
       title: "Pioneering the Future",
       titleHighlight: "of Sustainable Cooling",
       description:
-        "Expert en climatisation et froid industriel – Plus de 20 ans d'expérience. possède plus de 20 ans d'expérience dans le domaine de la climatisation et du froid industriel. Spécialiste reconnu, il maîtrise parfaitement les systèmes à détente directe ainsi que les installations à eau glacée, tant en travaux neufs qu'en maintenance et dépannage. Depuis plus de 15 ans, met ses compétences au service de Dalkia, où il intervient sur des installations complexes de groupes froids, assurant la qualité des travaux et la fiabilité des équipements, notamment sur les systèmes à détente directe et les réseaux d'eau glacée. Avant de rejoindre Dalkia, il a acquis une solide expérience de 5 ans chez Axima, où il a développé une expertise approfondie sur les installations à détente directe, en particulier sur des sites techniques et industriels. Rigoureux, réactif et passionné par son métier, s'engage à garantir à ses clients des installations performantes, des interventions de qualité et des solutions adaptées aux besoins les plus exigeants.",
+        "Avec plus de 20 ans d'expérience en climatisation et froid, j'interviens sur tous types de systèmes de climatisation pour particuliers, entreprises et collectivités. Mon expertise couvre l'installation de climatisation réversible, la maintenance préventive et corrective, ainsi que le dépannage rapide des équipements.\n\nJe suis spécialisé dans les technologies à détente directe, VRV/DRV, groupes froids industriels, pompes à chaleur air/air et systèmes à eau glacée. J'interviens sur les plus grandes marques du marché : Daikin, Mitsubishi Electric, Toshiba, Gree, Trane, CIAT, Carrier et bien d'autres.\n\nMon engagement : fournir des solutions de climatisation sur mesure, optimisées pour le confort thermique, la performance énergétique et la durabilité des installations.\n\nZones d'intervention : Île-de-France, Paris, Val-d'Oise et départements limitrophes.\nDomaines : climatisation résidentielle, climatisation tertiaire, climatisation industrielle.",
       installations: "Eco Installations",
       installationsSubtext: "Across residential & commercial",
       energySavings: "Energy Savings",
@@ -265,7 +265,7 @@ const translations = {
       title: "Pionnier de l'Avenir",
       titleHighlight: "de la Climatisation Écologique et Durable",
       description:
-        "Expert en climatisation et froid industriel – Plus de 20 ans d'expérience. possède plus de 20 ans d'expérience dans le domaine de la climatisation et du froid industriel. Spécialiste reconnu, il maîtrise parfaitement les systèmes à détente directe ainsi que les installations à eau glacée, tant en travaux neufs qu'en maintenance et dépannage. Depuis plus de 15 ans, met ses compétences au service de Dalkia, où il intervient sur des installations complexes de groupes froids, assurant la qualité des travaux et la fiabilité des équipements, notamment sur les systèmes à détente directe et les réseaux d'eau glacée. Avant de rejoindre Dalkia, il a acquis une solide expérience de 5 ans chez Axima, où il a développé une expertise approfondie sur les installations à détente directe, en particulier sur des sites techniques et industriels. Rigoureux, réactif et passionné par son métier, s'engage à garantir à ses clients des installations performantes, des interventions de qualité et des solutions adaptées aux besoins les plus exigeants.",
+        "Avec plus de 20 ans d'expérience en climatisation et froid, j'interviens sur tous types de systèmes de climatisation pour particuliers, entreprises et collectivités. Mon expertise couvre l'installation de climatisation réversible, la maintenance préventive et corrective, ainsi que le dépannage rapide des équipements.\n\nJe suis spécialisé dans les technologies à détente directe, VRV/DRV, groupes froids industriels, pompes à chaleur air/air et systèmes à eau glacée. J'interviens sur les plus grandes marques du marché : Daikin, Mitsubishi Electric, Toshiba, Gree, Trane, CIAT, Carrier et bien d'autres.\n\nMon engagement : fournir des solutions de climatisation sur mesure, optimisées pour le confort thermique, la performance énergétique et la durabilité des installations.\n\nZones d'intervention : Île-de-France, Paris, Val-d'Oise et départements limitrophes.\nDomaines : climatisation résidentielle, climatisation tertiaire, climatisation industrielle.",
       installations: "Installations Écologiques",
       installationsSubtext: "Résidentiel et commercial",
       energySavings: "Économies d'Énergie",
@@ -836,11 +836,12 @@ export default function EcoClimaticWebsite() {
               <div className="absolute inset-0 bg-gradient-to-r from-green-400 via-teal-400 to-blue-500 rounded-3xl transform rotate-2 opacity-10"></div>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-teal-400 to-green-500 rounded-3xl transform -rotate-1 opacity-10"></div>
               <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-                <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center" style={{ minHeight: '480px', height: '100%' }}>
                   <img
                     src="https://envirinfos.net/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-23-at-12.54.54-PM.jpeg"
                     alt="EcoClimatic Sustainable Technology"
                     className="h-full w-full object-cover rounded-3xl"
+                    style={{ minHeight: '480px', height: '100%' }}
                   />
                 </div>
                 <div className="absolute bottom-6 left-6 right-6">
