@@ -50,11 +50,11 @@ export const metadata: Metadata = {
     canonical: "https://ecoclimatic.fr/"
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicodn.ico/apple-touch-icon.png",
+    icon: "/logos/logo.png",
+    shortcut: "/logos/logo.png",
+    apple: "/logos/logo.png",
     other: [
-      { rel: "icon", url: "/favicon.png" }
+      { rel: "icon", url: "/logos/logo.png" }
     ]
   }
 }
@@ -90,6 +90,7 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <link rel="icon" href="/logos/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logos/logo.png" />
       </head>
       <body className={inter.className}>
         {/* Google Tag Manager (noscript) */}
