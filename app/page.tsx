@@ -32,6 +32,7 @@ import { PortfolioGallery } from "@/components/portfolio-gallery"
 import { LogoCloud } from "@/components/ui/logo-cloud"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 // Translations object
 const translations = {
@@ -542,22 +543,36 @@ export default function EcoClimaticWebsite() {
             {/* Main Heading */}
             <div className="mb-8">
               <h1 className="text-6xl md:text-8xl font-black leading-tight mb-4">
-                <span
-                  className="block text-green-500"
-                  style={{
-                    fontSize: "clamp(3rem, 8vw, 8rem)",
-                    fontWeight: "900",
-                    letterSpacing: "-0.02em",
-                  }}
-                >
-                  climatisation écologique
-                </span>
+                <div className="text-center">
+                  <div
+                    className="text-green-500 font-black"
+                    style={{
+                      fontSize: "clamp(2rem, 5vw, 5rem)",
+                      fontWeight: "900",
+                      letterSpacing: "-0.02em",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    Ecoclimatic : Entreprise
+                  </div>
+                  <div
+                    className="text-green-500 font-black"
+                    style={{
+                      fontSize: "clamp(2rem, 5vw, 5rem)",
+                      fontWeight: "900",
+                      letterSpacing: "-0.02em",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    climatisation écologique en France
+                  </div>
+                </div>
               </h1>
             </div>
 
             {/* Description */}
             <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12 font-light">
-              Bienvenue sur ecoclimatique, le site dédié à la climatisation respectueuse de l'environnement. Découvrez nos solutions écoclimatiques innovantes pour un confort durable et une planète préservée.
+              Chez Ecoclimatic, nous vous proposons une climatisation respectueuse de l'environnement. Découvrez nos solutions écoclimatiques innovantes pour un confort durable et une planète préservée.
             </p>
 
             {/* CTA Buttons */}
@@ -901,6 +916,366 @@ export default function EcoClimaticWebsite() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nouveau bloc - Climatisation respectueuse de l'environnement */}
+      <section className="py-24 px-6 bg-gradient-to-br from-blue-50/30 to-green-50/30 relative overflow-hidden">
+        <div className="container mx-auto relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                Pour une climatisation respectueuse de l'environnement
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Vous êtes à la recherche d'un installeur climatisation à Paris, Val-d'Oise ou leurs limitrophes ? Vous voulez profitez de solutions concrètes, durables et économiques ?
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Nos artisans disposent d'une forte expérience dans le domaine de la climatisation. Nous sommes capables de répondre à vos besoins, tout en vous garantissant des solutions écologiques et durables.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Nous vous apportons des solutions sur mesure pour vous assurer une performance optimale de vos systèmes de climatisation.
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-200/50">
+                  <h3 className="text-2xl font-bold text-green-700 mb-4 flex items-center">
+                    <Leaf className="h-6 w-6 mr-3" />
+                    Nos Services
+                  </h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Installation et dépannage de vos climatiseurs</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Visites régulières sur votre site</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Travaux de maintenance et d'entretien climatisation IDF</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section - Qui sommes-nous ? */}
+      <section className="py-24 px-6 bg-gradient-to-br from-green-50/30 to-blue-50/30 relative overflow-hidden">
+        <div className="container mx-auto relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                Qui sommes-nous ?
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                  Pourquoi nous choisir ?
+                </h3>
+                
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Avec Ecoclimatic, optez pour climatisation réversible et écologique ! Profitez de bénéfices notables sur l'environnement, la santé et la consommation :
+                </p>
+
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <span className="text-green-600 text-xl mr-3 mt-1">✅</span>
+                    <div>
+                      <span className="font-semibold text-gray-800">Économie d'énergie :</span>
+                      <span className="text-gray-700"> réduisez votre consommation électrique grâce à des technologies innovantes</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <span className="text-green-600 text-xl mr-3 mt-1">✅</span>
+                    <div>
+                      <span className="font-semibold text-gray-800">Respect de l'environnement :</span>
+                      <span className="text-gray-700"> bénéficiez de nos solutions écologiques (fluides naturels, absence de gaz réfrigérants...)</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <span className="text-green-600 text-xl mr-3 mt-1">✅</span>
+                    <div>
+                      <span className="font-semibold text-gray-800">Confort durable et planète préservée :</span>
+                      <span className="text-gray-700"> optez pour une meilleure qualité de l'air et une réduction optimale du bruit</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <span className="text-green-600 text-xl mr-3 mt-1">✅</span>
+                    <div>
+                      <span className="font-semibold text-gray-800">Solutions adaptées :</span>
+                      <span className="text-gray-700"> obtenez des solutions sur mesure, adaptées à vos différents besoins et budgets</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Trouvez une entreprise climatisation près de chez vous en quelques clics !
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-200/50">
+                  <h3 className="text-2xl font-bold text-green-700 mb-4 flex items-center">
+                    <Phone className="h-6 w-6 mr-3" />
+                    Contactez-nous
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center bg-blue-50 text-blue-700 px-4 py-3 rounded-lg border border-blue-200">
+                      <span className="text-lg font-semibold">📞 06-50-66-86-00</span>
+                    </div>
+                    <Link href="/contact" className="block">
+                      <Button className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                        <Mail className="mr-3 h-5 w-5" />
+                        Page Contact
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section - Nos services de climatisation */}
+      <section className="py-24 px-6 bg-gradient-to-br from-gray-50/30 to-white relative overflow-hidden">
+        <div className="container mx-auto relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
+              Nos services de climatisation
+            </h2>
+            
+            <div className="mb-12">
+              <p className="text-lg text-gray-700 leading-relaxed mb-6 text-center max-w-4xl mx-auto">
+                Ecoclimatic est une entreprise de climatisation reconnue en France pour son professionnalisme et l'expertise de ses artisans. Avec plus de 20 ans d'expérience dans le domaine, nous vous proposons des services de qualité.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-4xl mx-auto">
+                Notre équipe d'artisans qualifiés intervient sur tous types de systèmes de climatisation pour particuliers, entreprises et collectivités.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-4">
+                <Link href="/installation" className="block p-8 text-center hover:bg-gray-50 transition-all duration-300 border-r border-gray-200 last:border-r-0">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Installation de climatisation</h3>
+                </Link>
+                <Link href="/maintenance" className="block p-8 text-center hover:bg-gray-50 transition-all duration-300 border-r border-gray-200 last:border-r-0">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Maintenance des systèmes</h3>
+                </Link>
+                <Link href="/depannage" className="block p-8 text-center hover:bg-gray-50 transition-all duration-300 border-r border-gray-200 last:border-r-0">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Dépannage</h3>
+                </Link>
+                <Link href="/solutions" className="block p-8 text-center hover:bg-gray-50 transition-all duration-300 border-r border-gray-200 last:border-r-0">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Solutions durables</h3>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section - Zones d'intervention */}
+      <section className="py-24 px-6 bg-gradient-to-br from-blue-50/30 to-green-50/30 relative overflow-hidden">
+        <div className="container mx-auto relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
+              Zones d'intervention
+            </h2>
+            
+            <div className="mb-12">
+              <p className="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto">
+                Pour tous vos besoins en installation de climatiseur, dépannage et maintenance, nous intervenons dans les départements suivants et leurs environs.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+              <table className="w-full">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-8 py-4 text-left text-lg font-semibold text-gray-900 border-b border-gray-200">Paris (75)</th>
+                    <th className="px-8 py-4 text-left text-lg font-semibold text-gray-900 border-b border-gray-200">Val-d'Oise (95)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="px-8 py-6 text-gray-600">Tous arrondissements de Paris</td>
+                    <td className="px-8 py-6 text-gray-600">Toutes communes du Val-d'Oise</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section - Nos réalisations */}
+      <section className="py-24 px-6 bg-gradient-to-br from-green-50/30 to-teal-50/30 relative overflow-hidden">
+        <div className="container mx-auto relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                Nos réalisations
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Découvrez les différents projets réalisés par notre spécialiste climatisation !
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Réalisation 1 - Installation groupe Extérieure */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 bg-white">
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src="/images/img5.jpg"
+                    alt="Installation groupe Extérieure"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
+                    Installation groupe Extérieure
+                  </h3>
+                  <p className="text-sm text-gray-600 mt-1">Paris, France</p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                      Commercial
+                    </Badge>
+                    <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                      Exterior Work
+                    </Badge>
+                  </div>
+                </div>
+              </div>
+
+              {/* Réalisation 2 - Unité murale */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 bg-white">
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src="/images/img1.jpg"
+                    alt="Unité murale"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
+                    Unité murale
+                  </h3>
+                  <p className="text-sm text-gray-600 mt-1">Paris, France</p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                      Résidentiel
+                    </Badge>
+                    <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                      Wall-Mounted
+                    </Badge>
+                  </div>
+                </div>
+              </div>
+
+              {/* Réalisation 3 - Console au sol */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 bg-white">
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src="/images/img2.jpg"
+                    alt="Console au sol"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
+                    Console au sol
+                  </h3>
+                  <p className="text-sm text-gray-600 mt-1">Lyon, France</p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                      Résidentiel
+                    </Badge>
+                    <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                      Floor Console
+                    </Badge>
+                  </div>
+                </div>
+              </div>
+
+              {/* Réalisation 4 - Unité extérieure */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 bg-white">
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src="/images/img3.jpg"
+                    alt="Unité extérieure"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
+                    Unité extérieure
+                  </h3>
+                  <p className="text-sm text-gray-600 mt-1">Marseille, France</p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                      Commercial
+                    </Badge>
+                    <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                      Outdoor Unit
+                    </Badge>
+                  </div>
+                </div>
+              </div>
+
+              {/* Réalisation 5 - Cassette plafond */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 bg-white">
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src="/images/img4.jpg"
+                    alt="Cassette plafond"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
+                    Cassette plafond
+                  </h3>
+                  <p className="text-sm text-gray-600 mt-1">Nice, France</p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                      Commercial
+                    </Badge>
+                    <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                      Ceiling Mount
+                    </Badge>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <Link href="/realisations">
+                <Button className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                  Voir toutes nos réalisations
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -19,22 +19,28 @@ export async function POST(req: Request) {
   try {
     const data: InstallationRequestBody = await req.json();
 
+    const smtpUser = process.env.SMTP_USER || 'ecoclimatique0@gmail.com'
+    const smtpPass = process.env.SMTP_PASS || process.env.GMAIL_APP_PASSWORD
+    const smtpFrom = process.env.SMTP_FROM || smtpUser
+    const smtpTo = process.env.SMTP_TO || smtpUser
+
+    if (!smtpUser || !smtpPass) {
+      return NextResponse.json({ success: false, error: 'SMTP credentials not configured' }, { status: 500 })
+    }
+
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 587,
       secure: false, 
       auth: {
-        user: 'ecoclimatique0@gmail.com',
-        pass: process.env.GMAIL_APP_PASSWORD,
-      },
-      tls: {
-        rejectUnauthorized: false,
+        user: smtpUser,
+        pass: smtpPass,
       },
     });
 
     const mailOptions = {
-      from: 'ecoclimatique0@gmail.com',
-      to: 'ecoclimatique0@gmail.com',
+      from: smtpFrom,
+      to: smtpTo,
       subject: 'Nouvelle demande de devis d\'installation',
       html: `
         <h1>Nouvelle demande de devis d'installation</h1>

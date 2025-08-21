@@ -13,11 +13,11 @@ export default function RealisationsPage() {
             <ImageIcon className="h-4 w-4 mr-2" />
             Nos Travaux Récents
           </Badge>
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Projets <span className="bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">En Vedette</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Climatisation : quelques-unes de nos réalisations
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Explorez nos dernières installations de refroidissement durables et voyez comment nous faisons la différence.
+            Explorez notre portfolio pour voir comment nous avons transformé les projets de nos clients, témoignant de notre expertise en climatisation.
           </p>
         </div>
 

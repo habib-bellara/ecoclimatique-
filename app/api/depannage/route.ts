@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   const { name, address, phone, email, issueType, issueDescription } = await req.json();
@@ -8,22 +10,45 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Tous les champs sont requis." }, { status: 400 });
   }
 
-  const transporter = nodemailer.createTransport({
+  const smtpUser = process.env.SMTP_USER || 'ecoclimatique0@gmail.com'
+  const gmailAppPass = process.env.GMAIL_APP_PASSWORD
+  const smtpPassEnv = process.env.SMTP_PASS
+  const smtpPass = gmailAppPass || smtpPassEnv
+  const smtpFrom = process.env.SMTP_FROM || smtpUser
+  const smtpTo = process.env.SMTP_TO || smtpUser
+
+  if (!smtpUser || !smtpPass) {
+    return NextResponse.json({ success: false, error: `SMTP credentials not configured (SMTP_USER=${Boolean(smtpUser)}, SMTP_PASS=${Boolean(smtpPassEnv)}, GMAIL_APP_PASSWORD=${Boolean(gmailAppPass)})` }, { status: 500 })
+  }
+
+  // Try secure SMTPS (465) first, then fallback to STARTTLS (587)
+  let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    auth: {
-      user: 'ecoclimatique0@gmail.com',
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-    tls: {
-      rejectUnauthorized: false,
-    },
+    port: 465,
+    secure: true,
+    auth: { user: smtpUser, pass: smtpPass },
   });
 
+  try {
+    await transporter.verify();
+  } catch (e: any) {
+    transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
+      requireTLS: true,
+      auth: { user: smtpUser, pass: smtpPass },
+    });
+    try {
+      await transporter.verify();
+    } catch (e2: any) {
+      return NextResponse.json({ success: false, error: `SMTP connection failed: ${e2?.message || String(e2)}` }, { status: 500 })
+    }
+  }
+
   const mailOptions = {
-    from: 'ecoclimatique0@gmail.com',
-    to: 'ecoclimatique0@gmail.com',
+    from: smtpFrom,
+    to: smtpTo,
     subject: "Nouvelle Demande de Dépannage Urgent",
     html: `
       <h1>Nouvelle Demande de Dépannage</h1>
@@ -42,8 +67,8 @@ export async function POST(req: NextRequest) {
   try {
     await transporter.sendMail(mailOptions);
     return NextResponse.json({ message: "Email envoyé avec succès" }, { status: 200 });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Erreur lors de l'envoi de l'email:", error);
-    return NextResponse.json({ error: "Erreur lors de l'envoi de l'email." }, { status: 500 });
+    return NextResponse.json({ error: `Erreur lors de l'envoi de l'email: ${error?.message || String(error)}` }, { status: 500 });
   }
 } 

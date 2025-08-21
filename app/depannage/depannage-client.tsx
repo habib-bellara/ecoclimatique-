@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Label } from "@/components/ui/label"
-import { User, Wrench, AlertTriangle, CheckCircle } from "lucide-react"
+import { User, Wrench, AlertTriangle, CheckCircle, Clock, FileText } from "lucide-react"
 
 const DecorativeBg = () => (
   <>
@@ -66,8 +66,96 @@ export default function DepannageClient() {
       <DecorativeBg />
       {/* Contenu principal uniquement, la navigation et le footer proviennent du layout global */}
       <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 z-10">
-        <div className="max-w-4xl mx-auto">
-          <Card className="bg-white/90 backdrop-blur-sm shadow-2xl rounded-3xl border-0">
+        <Card className="bg-white/90 backdrop-blur-sm shadow-2xl rounded-3xl border-0 mb-8">
+          <CardHeader className="p-8">
+            <CardTitle className="text-3xl font-extrabold text-gray-900">Dépannage et réparation</CardTitle>
+            <CardDescription className="text-gray-600 mt-2">Interventions rapides en Île-de-France</CardDescription>
+          </CardHeader>
+          <CardContent className="p-8">
+            <div className="space-y-6">
+              <div className="rounded-2xl border border-amber-200 bg-amber-50/60 p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <AlertTriangle className="h-5 w-5 text-amber-600" />
+                  <h2 className="text-3xl font-bold text-slate-900">Dépannage climatisation urgent</h2>
+                </div>
+                <p className="text-slate-700 text-lg leading-relaxed">
+                  Votre climatiseur est en panne ? Besoin d’un dépannage climatisation urgent ? Faites appels à nos techniciens ! Nous assurons des interventions rapides dans les plus brefs délais pour une réparation climatiseur résidentiel et professionnel.
+                </p>
+                <p className="text-slate-700 text-lg leading-relaxed mt-3">
+                  Nos dépanneurs interviennent en urgence dans tout le Val-d’Oise et à Paris pour assurer la réparation immédiate et efficace de vos climatiseurs en panne ou défectueux.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <Wrench className="h-5 w-5 text-teal-600" />
+                  <h3 className="text-2xl font-semibold text-slate-900">Réparation de toutes les pannes</h3>
+                </div>
+                <p className="text-slate-700 text-lg leading-relaxed">
+                  Votre climatiseur ne souffle plus d’air frais, émet un bruit inhabituel, refuse de démarrer ou s’arrête sans raison ?
+                </p>
+                <p className="text-slate-700 text-lg leading-relaxed mt-3">
+                  En cas de panne, il est essentiel de faire appel à une entreprise climatisation professionnelle pour effectuer un diagnostic précis et assurer la réparation rapide de votre installation.
+                </p>
+                <p className="text-slate-700 text-lg leading-relaxed mt-3">
+                  Pour tout type de panne, nous sommes capables d’offrir des solutions rapides, efficaces et sur mesure.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-blue-200 bg-blue-50/40 p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <Clock className="h-5 w-5 text-blue-600" />
+                  <h3 className="text-2xl font-semibold text-slate-900">Dépannage 24/7</h3>
+                </div>
+                <p className="text-slate-700 text-lg leading-relaxed">
+                  Veillant à satisfaire tous nos clients, nous mettons à leur disposition un service de dépannage tous les jours de la semaine.
+                </p>
+                <p className="text-slate-700 text-lg leading-relaxed mt-3">
+                  Nos techniciens sont disponibles jour et nuit pour intervenir sur site et réparer toutes les pannes affectant votre système de climatisation.
+                </p>
+                <p className="text-slate-700 text-lg leading-relaxed mt-3">
+                  Demandez un devis détaillé et gratuit avant toute intervention ! Les coûts varient d’un professionnel à un autre.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <CheckCircle className="h-5 w-5 text-emerald-600" />
+                  <h3 className="text-2xl font-semibold text-slate-900">Réparation toutes marques</h3>
+                </div>
+                <p className="text-slate-700 text-lg leading-relaxed">
+                  Chez Ecoclimatic, nous intervenons pour le dépannage de systèmes de climatisation, quelle que soit leur marque ou leur modèle.
+                </p>
+                <p className="text-slate-700 text-lg leading-relaxed mt-3">
+                  Nos techniciens qualifiés possèdent l’expertise nécessaire pour diagnostiquer et réparer efficacement tout type de panne.
+                </p>
+                <p className="text-slate-700 text-lg leading-relaxed mt-3">
+                  Nous travaillons avec les plus grandes marques du marché (Daikin, Mitsubishi, Toshiba, Panasonic, LG...) et utilisons des pièces détachées fiables pour garantir la durabilité de vos équipements.
+                </p>
+                <p className="text-slate-700 text-lg leading-relaxed mt-3">
+                  Notre mission est de remettre votre climatisation en service dans les plus brefs délais, avec un haut niveau de fiabilité et de sécurité.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <FileText className="h-5 w-5 text-slate-600" />
+                  <h3 className="text-2xl font-semibold text-slate-900">Demandez un devis gratuit</h3>
+                </div>
+                <p className="text-slate-700 text-lg leading-relaxed">
+                  Vous avez un projet de réparation ou de dépannage de climatisation ? Ecoclimatic vous propose un devis gratuit et sans engagement, adapté à vos besoins et à votre budget.
+                </p>
+                <p className="text-slate-700 text-lg leading-relaxed mt-3">
+                  Nos experts étudient votre demande avec attention afin de vous fournir une solution personnalisée, claire et transparente.
+                </p>
+                <p className="text-slate-700 text-lg leading-relaxed mt-3">
+                  Appelez-nous dès maintenant pour bénéficier de notre expertise et obtenir une estimation rapide de vos travaux en climatisation.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="bg-white/90 backdrop-blur-sm shadow-2xl rounded-3xl border-0">
             <CardHeader className="text-center p-8">
               <div className="mx-auto bg-gradient-to-r from-amber-500 to-orange-500 p-4 rounded-full w-20 h-20 flex items-center justify-center -mt-20 shadow-lg">
                 <Wrench className="text-white h-10 w-10" />
@@ -156,7 +244,6 @@ export default function DepannageClient() {
               </form>
             </CardContent>
           </Card>
-        </div>
       </main>
     </div>
   )
