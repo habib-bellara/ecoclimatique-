@@ -3,7 +3,8 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Snowflake, Wrench, ShieldAlert, ArrowRight } from "lucide-react"
+import Link from "next/link"
+import { Snowflake, Wrench, ShieldAlert, ArrowRight, Check } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 export default function ServicesPage() {
@@ -40,6 +41,65 @@ export default function ServicesPage() {
   return (
     <section className="py-24 px-6 bg-white relative overflow-hidden">
       <div className="container mx-auto relative z-10">
+        {/* Bloc d'intro - Service climatisation Île-de-France */}
+        <div className="max-w-5xl mx-auto text-slate-800 mb-16">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Service climatisation Île-de-France</h1>
+          <p className="text-lg leading-relaxed mb-4">
+            Ecoclimatic propose un service climatisation en Île-de-France, adaptés à tous types de besoins. Qu'il s'agisse de résidences, de bureaux ou d'industries, nous offrons des solutions sur mesure.
+          </p>
+          <p className="text-lg leading-relaxed mb-4">
+            Grâce à notre expertise et à notre savoir-faire, nous assurons l'installation, la maintenance et le dépannage de vos systèmes de climatisation.
+          </p>
+          <p className="text-lg leading-relaxed mb-4">
+            Nous garantissons des solutions énergétiquement efficaces et durables.
+          </p>
+          <p className="text-lg leading-relaxed mb-8">
+            Que vous soyez particulier ou professionnel, nous vous accompagnons pour créer un environnement agréable et confortable, quelle que soit la saison.
+          </p>
+
+          <h2 className="text-2xl md:text-3xl font-bold text-sky-800 mb-6">Climatisation écologique : Nos prestations</h2>
+          <p className="text-lg leading-relaxed mb-4">
+            Vous voulez bénéficier d’une solution de climatisation respectueuse de l’environnement, alliant performance et efficacité énergétique ?
+          </p>
+          <p className="text-lg leading-relaxed mb-4">
+            En utilisant des technologies modernes (pompes à chaleur, systèmes de climatisation réversibles...), nous vous aidons à réduire votre empreinte carbone tout en maintenant un confort thermique optimal.
+          </p>
+          <p className="text-lg leading-relaxed mb-6">
+            Nos prestations incluent l’installation, la maintenance et l’optimisation de vos équipements, en privilégiant des solutions durables et éco-responsables.
+          </p>
+
+          {/* Grid 2x2 des prestations en H3 */}
+          <div className="mb-10 border rounded-lg overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x">
+              <Link href="/installation" className="p-6 text-center block hover:bg-slate-50 focus:bg-slate-50 transition-colors">
+                <h3 className="text-lg font-semibold underline">Installation de climatisation</h3>
+              </Link>
+              <Link href="/maintenance" className="p-6 text-center block hover:bg-slate-50 focus:bg-slate-50 transition-colors">
+                <h3 className="text-lg font-semibold underline">Maintenance et entretien</h3>
+              </Link>
+              <Link href="/depannage" className="p-6 text-center block hover:bg-slate-50 focus:bg-slate-50 transition-colors">
+                <h3 className="text-lg font-semibold underline">Dépannage et réparation</h3>
+              </Link>
+              <Link href="/solutions" className="p-6 text-center block hover:bg-slate-50 focus:bg-slate-50 transition-colors">
+                <h3 className="text-lg font-semibold underline">Solutions durables</h3>
+              </Link>
+            </div>
+          </div>
+
+          <h2 className="text-2xl md:text-3xl font-bold text-sky-800 mb-6">Pourquoi opter pour une climatisation écologique ?</h2>
+          <div className="pl-2 md:pl-8 mb-6">
+            <ul className="space-y-3 text-lg">
+              <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-600 mt-1" /> Réduction des îlots de chaleur urbaine</li>
+              <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-600 mt-1" /> Diminution des émissions de gaz à effet de serre</li>
+              <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-600 mt-1" /> Économie d'énergie jusqu'à 60%</li>
+              <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-600 mt-1" /> Meilleure qualité de l'air intérieur</li>
+              <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-600 mt-1" /> Systèmes silencieux et solutions durables</li>
+            </ul>
+          </div>
+          <p className="text-lg">
+            Pour une installation de climatisation écologique et réversible, <Link href="/contact" className="text-green-700 font-semibold underline">contactez-nous</Link> !
+          </p>
+        </div>
         <div className="text-center mb-20">
           <Badge className="mb-6 bg-gradient-to-r from-green-100 to-teal-100 text-green-800 px-4 py-2 font-medium">
             <Wrench className="h-4 w-4 mr-2" />

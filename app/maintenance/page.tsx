@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-import { Wrench, Calendar, Users, Info } from "lucide-react"
+import { Wrench, Calendar, Users, Info, FileText, Sparkles, ShieldCheck, Thermometer, Wallet, CheckCircle } from "lucide-react"
 
 interface MaintenanceFormData {
   systemType: string
@@ -99,7 +99,81 @@ export default function MaintenancePage() {
       <DecorativeBg />
 
       <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 z-10">
-        <div className="max-w-4xl mx-auto">
+          {/* Bloc d'information - Entretien climatisation */}
+          <Card className="bg-white/90 backdrop-blur-sm shadow-2xl rounded-3xl border-0 mb-8">
+            <CardHeader className="p-8">
+              <CardTitle className="text-3xl font-extrabold text-gray-900 flex items-center gap-3">
+                <Wrench className="h-7 w-7 text-blue-600" />
+                Entretien climatisation en IDF
+              </CardTitle>
+              <CardDescription className="text-gray-600 mt-2">Maintenance, nettoyage et optimisation de vos climatiseurs</CardDescription>
+            </CardHeader>
+            <CardContent className="p-8 text-slate-700 text-lg leading-relaxed space-y-6">
+              <p>
+                Un système de climatisation est déjà installé dans votre logement, votre entreprise ou votre bureau ? Vous êtes à la recherche d’un prestataire fiable et expérimenté pour en assurer l’entretien régulier ? Ecoclimatic vous propose un service complet de maintenance et de nettoyage de vos climatiseurs.
+              </p>
+              <p>
+                Notre but est de préserver leur bon fonctionnement, de prolonger leur durée de vie et de garantir une performance énergétique optimale.
+              </p>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-3">
+                  <FileText className="h-5 w-5 text-blue-600" />
+                  <h3 className="text-2xl font-semibold text-slate-900">Contrat d’entretien annuel</h3>
+                </div>
+                <p>
+                  Disposer d’un contrat d’entretien annuel pour votre système de climatisation est indispensable afin de garantir conformité et sérénité. Ecoclimatic, basé à Paris (75) et dans le Val-d’Oise (95), propose des contrats de maintenance personnalisés, adaptés aux besoins spécifiques de chaque installation.
+                </p>
+                <p className="mt-3">
+                  Un entretien régulier réalisé par nos artisans climatisation qualifiés contribue à prolonger la durée de vie de vos équipements et à maintenir leur performance optimale. Nous utilisons exclusivement des matériaux de qualité supérieure pour assurer un fonctionnement fiable et durable.
+                </p>
+                <p className="mt-3">Nous vous offrons des solutions de maintenance sur mesure, pensées pour répondre à vos priorités.</p>
+
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-3 border rounded-lg overflow-hidden text-center text-base">
+                  <div className="p-5 border-b md:border-b-0 md:border-r flex items-center justify-center gap-2"><Thermometer className="h-4 w-4 text-slate-700" /> Confort thermique</div>
+                  <div className="p-5 border-b md:border-b-0 md:border-r flex flex-col items-center justify-center gap-1">
+                    <div className="flex items-center gap-2"><Wallet className="h-4 w-4 text-slate-700" /> Maîtrise des coûts</div>
+                    <div className="text-slate-700">d’exploitation</div>
+                  </div>
+                  <div className="p-5 flex items-center justify-center gap-2"><ShieldCheck className="h-4 w-4 text-slate-700" /> Fiabilité</div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <Sparkles className="h-5 w-5 text-emerald-700" />
+                  <h3 className="text-2xl font-semibold text-slate-900">Nettoyage climatisation et optimisation des performances</h3>
+                </div>
+                <p>
+                  Une maintenance régulière de votre système de climatisation est essentielle pour garantir son bon fonctionnement, sa longévité et son efficacité énergétique. Nous assurons le nettoyage complet de vos équipements (filtres, unités intérieures, unités extérieures et conduits) afin d’éliminer poussières, bactéries et moisissures.
+                </p>
+                <p className="mt-3">
+                  Ce nettoyage approfondi améliore la qualité de l’air intérieur, réduit la consommation d’énergie et évite les pannes prématurées. En complément, nos techniciens procèdent à des réglages et vérifications techniques pour optimiser les performances de votre installation, vous assurant ainsi un confort optimal en toutes saisons.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-teal-200 bg-teal-50/50 p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <ShieldCheck className="h-5 w-5 text-teal-700" />
+                  <h3 className="text-2xl font-semibold text-slate-900">Maintenance préventive de votre système</h3>
+                </div>
+                <p>
+                  Faites appel à nos professionnels de climatisation pour la maintenance préventive de vos équipements. Cette intervention vous permet d’assurer le bon fonctionnement et la longévité de votre système.
+                </p>
+                <p className="mt-3">Au cours de l’intervention :</p>
+                <ul className="mt-2 space-y-2 text-slate-800">
+                  <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-teal-700 mt-1" /> Nous vérifions l’état général de vos équipements.</li>
+                  <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-teal-700 mt-1" /> Nous contrôlons les niveaux de fluides, les connexions électriques, les performances thermiques.</li>
+                  <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-teal-700 mt-1" /> Nous assurons le bon état des composants.</li>
+                </ul>
+                <p className="mt-3">
+                  Cette approche proactive vous permet de maintenir une performance optimale, de réduire vos dépenses énergétiques et d’éviter les interruptions de service.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Formulaire de maintenance */}
           <Card className="bg-white/90 backdrop-blur-sm shadow-2xl rounded-3xl border-0">
             <CardHeader className="text-center p-8">
               <div className="mx-auto bg-gradient-to-r from-blue-500 to-indigo-500 p-4 rounded-full w-20 h-20 flex items-center justify-center -mt-20 shadow-lg">
@@ -221,7 +295,6 @@ export default function MaintenancePage() {
               </form>
             </CardContent>
           </Card>
-        </div>
       </main>
 
     </div>

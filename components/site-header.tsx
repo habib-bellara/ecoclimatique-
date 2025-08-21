@@ -42,6 +42,7 @@ export function SiteHeader() {
   ]
 
   const serviceSubItems = [
+    { label: "Tous les services", href: "/services" },
     { label: "Installation de Climatisation", href: "/installation" },
     { label: "Maintenance des Systèmes", href: "/maintenance" },
     { label: "Dépannage", href: "/depannage" },

@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-import { Leaf } from "lucide-react"
+import { Leaf, Home, Snowflake, Wind, Droplets, Building2, FileText, Wrench } from "lucide-react"
 
 const DecorativeBg = () => (
   <>
@@ -78,7 +78,105 @@ export default function InstallationPage() {
     <div className="relative flex flex-col min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-green-100 overflow-clip">
       <DecorativeBg />
       <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 z-10">
-        <div className="max-w-4xl mx-auto">
+          {/* Bloc d'information */}
+          <Card className="bg-white/90 backdrop-blur-sm shadow-2xl rounded-3xl border-0 mb-8">
+            <CardHeader className="p-8">
+              <CardTitle className="text-3xl font-extrabold text-gray-900 flex items-center gap-3">
+                <Leaf className="h-7 w-7 text-green-600" />
+                Installation climatisation à Paris et dans le Val-d'Oise
+              </CardTitle>
+              <CardDescription className="text-gray-600 mt-2">Étude, installation, mise en service et entretien</CardDescription>
+            </CardHeader>
+            <CardContent className="p-8">
+              <div className="space-y-6 text-slate-700 text-lg leading-relaxed">
+                <p>
+                  Notre entreprise climatisation accompagne les particuliers et les professionnels pour tous leurs besoins en climatisation et ventilation. Nos techniciens assurent l’installation climatisation, la mise en service et l’entretien de vos équipements avec savoir-faire et rigueur.
+                </p>
+                <p>
+                  Forts de notre expérience, nous maîtrisons la pose de climatiseurs de toutes les marques (installation climatisation Daikin, installation climatisation Mitsubishi Electric...). Que vous soyez à Paris, dans le Val-d'Oise ou leurs limitrophes, faites appel à nos spécialistes climatisation !
+                </p>
+
+                <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Home className="h-5 w-5 text-teal-600" />
+                    <h3 className="text-2xl font-semibold text-slate-900">Des professionnels de climatisation à votre disposition</h3>
+                  </div>
+                  <p>
+                    Nous prenons en charge une large gamme de systèmes de climatisation destinés aussi bien aux particuliers qu’aux professionnels (climatisation résidentielle, climatisation bureau...). Parmi les équipements que nous installons et entretenons : climatiseurs réversibles, pompe à chaleur air/air, systèmes VRV/DRV, système à eau glacée, groupes frigorifiques industriels...
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-6 shadow-sm">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Snowflake className="h-5 w-5 text-emerald-700" />
+                    <h3 className="text-2xl font-semibold text-slate-900">Climatisation réversible</h3>
+                  </div>
+                  <p>
+                    Compatible avec tous types de bâtiments, cette solution se compose d’une unité extérieure associée à une ou plusieurs unités intérieures. Ces dernières peuvent être installées au mur, intégrées dans le plafond ou présentées sous forme de cassettes, selon les contraintes et l’agencement des lieux. Qu’il s’agisse de constructions neuves, de rénovations ou de locaux professionnels, faites-nous confiance !
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-blue-200 bg-blue-50/40 p-6 shadow-sm">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Wind className="h-5 w-5 text-blue-700" />
+                    <h3 className="text-2xl font-semibold text-slate-900">Pompe à chaleur air/air</h3>
+                  </div>
+                  <p>
+                    Vous souhaitez équiper votre maison ou vos bureaux d’une pompe à chaleur ? Nos techniciens qualifiés interviennent à Paris et dans tout le Val-d’Oise (95). Nous effectuons une installation conforme aux normes en vigueur, réalisée avec soin et professionnalisme. Que ce soit pour un projet neuf ou une rénovation, nous assurons la pose de votre pompe à chaleur, tout en respectant votre budget et vos besoins.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-teal-200 bg-teal-50/50 p-6 shadow-sm">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Building2 className="h-5 w-5 text-teal-700" />
+                    <h3 className="text-2xl font-semibold text-slate-900">Systèmes VRV / DRV</h3>
+                  </div>
+                  <p>
+                    Nos professionnels assurent l’installation de systèmes de climatisation VRV/DRV (Volume de Réfrigérant Variable / Débit de Réfrigérant Variable). Idéals pour les bâtiments de moyenne à grande taille (bureaux, hôtels, commerces ou immeubles collectifs), les solutions Ecoclimatic permettent de connecter plusieurs unités intérieures à une seule unité extérieure, offrant un confort optimal grâce à une régulation précise de la température dans chaque zone.
+                  </p>
+                  <p className="mt-3">
+                    Économiques, modulables et performants, les systèmes VRV/DRV s’adaptent parfaitement aux besoins spécifiques de chaque espace, tout en garantissant une haute efficacité énergétique. De l’étude à la mise en service, nous vous accompagnons dans le respect des normes et des contraintes de votre bâtiment.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-cyan-200 bg-cyan-50/50 p-6 shadow-sm">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Droplets className="h-5 w-5 text-cyan-700" />
+                    <h3 className="text-2xl font-semibold text-slate-900">Systèmes à eau glacée</h3>
+                  </div>
+                  <p>
+                    Nous proposons également l’installation de systèmes à eau glacée. Nous offrons une solution de climatisation centralisée adaptée aux bâtiments tertiaires, industriels ou de grande surface comme les hôpitaux et les centres commerciaux. Grâce à ces systèmes, vous bénéficiez d’une grande flexibilité d’utilisation et d’un excellent rendement énergétique.
+                  </p>
+                  <p className="mt-3">
+                    Les systèmes à eau glacée sont idéals pour le rafraîchissement de plusieurs zones à la fois. Nos professionnels assurent une installation conforme, optimisée et adaptée aux exigences spécifiques de votre infrastructure.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Wrench className="h-5 w-5 text-slate-700" />
+                    <h3 className="text-2xl font-semibold text-slate-900">Groupes frigorifiques industriels</h3>
+                  </div>
+                  <p>
+                    Nos techniciens assurent l’installation de groupes frigorifiques industriels, particulièrement utilisés dans les secteurs de l’agroalimentaire, la logistique, la pharmacie ou encore de la production industrielle. Ces groupes assurent le maintien d’une température précise et constante, indispensable au bon fonctionnement de vos installations ou à la conservation de vos produits.
+                  </p>
+                  <p className="mt-3">
+                    Nos artisans de climatisation prennent en charge l’étude de vos besoins, le dimensionnement du système, l’installation et la mise en service. Nous veillons également à respecter les normes de sécurité, d’hygiène et de performance énergétique en vigueur.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-green-200 bg-green-50/60 p-6 shadow-sm">
+                  <div className="flex items-center gap-3 mb-2">
+                    <FileText className="h-5 w-5 text-green-700" />
+                    <h3 className="text-2xl font-semibold text-slate-900">Demandez un devis gratuit</h3>
+                  </div>
+                  <p>
+                    Avec Ecoclimatic, profitez d’une solution fiable, durable et parfaitement adaptée à vos contraintes techniques.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
           <Card className="bg-white/90 backdrop-blur-sm shadow-2xl rounded-3xl border-0">
             <CardHeader className="text-center p-8">
               <div className="mx-auto bg-gradient-to-r from-green-500 to-teal-500 p-4 rounded-full w-20 h-20 flex items-center justify-center -mt-20 shadow-lg">
@@ -261,7 +359,6 @@ export default function InstallationPage() {
               </form>
             </CardContent>
           </Card>
-        </div>
       </main>
     </div>
   )
