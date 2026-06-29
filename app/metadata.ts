@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ecoclimatique.netlify.app"),
+  metadataBase: new URL("https://ecoclimatic.fr"),
   title: "Ecoclimatic - Climatisation Écologique, Installation & Maintenance",
   description:
     "Ecoclimatic est votre spécialiste en climatisation écologique, pompes à chaleur, et solutions de chauffage durable. Services d'installation, maintenance et dépannage.",

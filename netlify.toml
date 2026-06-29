@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "https://www.ecoclimatique.netlify.app/*"
-  to = "https://ecoclimatique.netlify.app/:splat"
+  from = "https://www.ecoclimatic.netlify.app/*"
+  to = "https://ecoclimatic.netlify.app/:splat"
   status = 301
-  force = true 
+  force = true
