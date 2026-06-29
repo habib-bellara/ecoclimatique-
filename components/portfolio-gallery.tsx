@@ -28,7 +28,7 @@ export function PortfolioGallery() {
   const portfolioItems: PortfolioItem[] = [
     {
       id: 1,
-      image: "/images/img1.jpg",
+      image: "/images/image-corriger.png",
       titleKey: "portfolio.item1.title",
       descriptionKey: "portfolio.item1.description",
       locationKey: "portfolio.item1.location",

@@ -717,8 +717,8 @@ export default function EcoClimaticWebsite() {
               <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
                 <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center" style={{ minHeight: '480px', height: '100%' }}>
                   <img
-                    src="https://envirinfos.net/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-23-at-12.54.54-PM.jpeg"
-                    alt="EcoClimatic Sustainable Technology"
+                    src="/images/image-corriger.png"
+                    alt="Technicien Ecoclimatic installant une climatisation"
                     className="h-full w-full object-cover rounded-3xl"
                     style={{ minHeight: '480px', height: '100%' }}
                   />
@@ -1168,7 +1168,7 @@ export default function EcoClimaticWebsite() {
               <div className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 bg-white">
                 <div className="relative aspect-video overflow-hidden">
                   <img
-                    src="/images/img1.jpg"
+                    src="/images/image-corriger.png"
                     alt="Unité murale"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
