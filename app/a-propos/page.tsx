@@ -8,8 +8,8 @@ import { Users, Star } from "lucide-react"
 export default function AProposPage() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-green-50 to-teal-50 py-24 px-6">
-      <div className="relative z-10 w-full">
-            <div>
+      <div className="container mx-auto relative z-10">
+        <div className="max-w-5xl mx-auto">
           <div className="inline-flex items-center bg-white/80 backdrop-blur-sm border border-green-200/60 text-green-700 px-4 py-2 rounded-full text-sm font-medium shadow-sm mb-8">
             À propos d'Ecoclimatic
               </div>
@@ -206,7 +206,6 @@ export default function AProposPage() {
               </div>
             </div>
           </section>
-          
         </div>
       </div>
     </section>
